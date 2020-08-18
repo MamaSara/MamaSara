@@ -1,0 +1,20 @@
+## intent:sick_child
+- my child is sick
+- my child has been sick for [two](days_sick) days
+- my baby is ill
+- my baby does not feel well
+- what do I do if my child is sick
+- what do I do if my baby is not well
+- my child has a [cough](symptom)
+- my child is [coughing](symptom:cough)
+- my child has [nausea](symptom)
+- my child has a [fever](symptom)
+- my child is [feverish](symptom:fever)
+- my child is [nauseous](symptom:nausea)
+- my child has a [headache](symptom)
+- my child has a [headache](symptom) and a [cough](symptom)
+- my child has a [headache](symptom) and a [cough](symptom) and a [fever](symptom)
+- my child has a [headache](symptom) and is [coughing](symptom:cough)
+- [headache](symptom) and [coughing](symptom:cough)
+- my child has a [sore throat](symptom) and [vomitting](symptom:vomit)
+- [sore throat](symptom) and [vomitting](symptom:vomit)

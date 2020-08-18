@@ -1,0 +1,46 @@
+## intent:supply_age
+- They are [six](months_old) months old.
+- My baby is [ten](months_old) months old, how much should they eat.
+- My child is [four](months_old) months old.
+- She is [eight](months_old) months old.
+- He is [fourteen](months_old) months old.
+- 8 months old
+- he is [eight](months_old) months old
+- [eight](months_old) months old
+- [three](months_old) months
+- [two](months_old) months
+- [one](months_old) months
+- [five](months_old) months
+- [sixteen](months_old) months
+- [eighteen](months_old) months
+- [six](months_old)
+- [eight](months_old)
+- [one](months_old)
+- [four](months_old)
+- [three](months_old)
+- [ten](months_old)
+- [five](months_old) months old
+- [five](months_old) months old
+
+## lookup:months_old
+- one
+- two
+- three
+- four
+- five
+- six
+- seven
+- eight
+- nine
+- ten
+- eleven
+- twelve
+- thirteen
+- fourteen
+- fifteen
+- sixteen
+- seventeen
+- eighteen
+- nineteen
+- twenty
+- twenty one

@@ -1,0 +1,11 @@
+intent,name
+nutrition_information,what should i feed my child?
+supply_age,tell me how many months old your child is.
+thanks,goodbye
+affirm,goodbye
+stop,goodbye
+greet,goodbye
+goodbye,goodbye
+deny,deny
+mood_great,mood_great
+out_of_scope,out_of_scope

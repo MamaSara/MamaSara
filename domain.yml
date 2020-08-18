@@ -1,0 +1,155 @@
+%YAML 1.1
+---
+actions:
+- action_default_ask_affirmation
+- action_default_fallback
+- action_chat_restart
+- action_nutrition_information
+- action_sick_child
+- action_breastfeeding_frequency
+- action_keep_child_healthy
+- action_get_child_to_eat_more
+- action_what_to_feed_sick_child
+- action_how_to_know_if_child_is_growing_well
+- action_feeding_child_for_growth
+- action_general_health
+- utter_more_information
+- utter_did_that_help
+- utter_goodbye
+- utter_greet
+- utter_happy
+- utter_headache
+- utter_intro
+- utter_supply_age
+- utter_supply_days_sick
+- utter_ask_headache
+- utter_ask_sore_throat
+- utter_ask_nausea
+- utter_ask_days_sick
+- utter_ask_months_old
+entities:
+- days_sick
+- months_old
+- years
+- headache
+- sore_throat
+- nausea
+- symptom
+- health
+forms:
+- illness_diagnostic_info_form
+- nutrition_diagnostic_info_form
+- health_diagnostic_info_form
+intents:
+- supply_age
+- sick_child
+- supply_days_sick
+- affirm
+- nutrition_information
+- health_information
+- how_often_to_breastfeed
+- keep_child_healthy
+- get_child_to_eat_more
+- what_to_feed_sick_child
+- how_to_know_if_child_is_growing_well
+- feeding_child_for_growth
+- thanks
+- stop
+- greet
+- goodbye
+- deny
+- mood_great
+- out_of_scope
+slots:
+  age:
+    type: text
+  days_sick:
+    auto_fill: false
+    type: unfeaturized
+  entity_extractor:
+    type: categorical
+    values:
+    - crfentityextractor
+    - spacyentityextractor
+  feedback_message:
+    type: unfeaturized
+  feedback_value:
+    type: categorical
+    values:
+    - positive
+    - negative
+  headache:
+    auto_fill: false
+    type: unfeaturized
+  sore_throat:
+    auto_fill: false
+    type: unfeaturized
+  nausea:
+    auto_fill: false
+    type: unfeaturized
+  months_old:
+    auto_fill: false
+    type: unfeaturized
+  name:
+    type: text
+  question_domain:
+    type: categorical
+    values:
+    - nutrition
+    - health
+  requested_slot:
+    type: unfeaturized
+  symptom:
+    auto_fill: false
+    type: list
+  health:
+    auto_fill: false
+    type: list
+  years:
+    auto_fill: false
+    type: unfeaturized
+  iteration_num:
+    type: text
+    initial_value: "0"
+  fallback:
+    type: text
+    initial_value: "0"
+templates:
+  utter_default:
+  - text: Sorry, I didn't get that. Could you please rephrase?
+  - text: I didn't understand, could you rephrase that?
+  - text: I'm sorry, but I didn't understand you. Could you please rephrase what you
+      just said?
+  - text: I'm afraid I didn't get what you just said. Could you rephrase that?
+  - text: I didn't quite get that, could you rephrase your message?
+  - text: Could you rephrase your message? I didn't get it, I'm sorry.
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_goodbye:
+  - text: Bye
+  utter_greet:
+  - text: Hey! How are you?
+  utter_happy:
+  - text: Great, carry on!
+  utter_headache:
+  - text: Does your child have a headache?
+  utter_intro:
+  - text: Ask me a question about your child's health or nutrition
+  utter_supply_age:
+  - text: How many months old is your child?
+  utter_supply_days_sick:
+  - text: How long has your child been sick?
+  utter_ask_months_old:
+  - text: Could you tell me how many months old your child is?
+  utter_ask_days_sick:
+  - text: How many days has your child been sick?
+  utter_ask_headache:
+  - text: Does your child have a headache?
+  utter_ask_sore_throat:
+  - text: Does your child have a sore throat?
+  utter_ask_nausea:
+  - text: Is your child nauseous?
+  utter_ask_symptom:
+  - text: What symptoms is your child experiencing?
+  utter_more_information:
+  - text: Would you like to hear more information?

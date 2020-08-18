@@ -1,0 +1,66 @@
+{
+  "nutrition_information": {
+    "6": "For babies under 6 months (who are still breastfed): Breastmilk is all your baby needs.",
+    "9": "Always give your baby breastmilk first before giving other foods. You should feed your baby 3 times a day. Babies have small stomachs. Gradually increase the amount of food to half a cup per meal",
+    "12": "Always give your baby breastmilk first before giving other foods",
+    "24": "Foods that are thick enough to stay on the spoon give more energy to the child"
+  },
+  "illness_information": {
+    "cough": "For coughing, give your baby more fluids than usual like milk and water.",
+    "nausea": "For nausea, make sure your baby gets more rest to treat nausea.",
+    "headache": "For headaches, make sure your baby gets more rest to treat the headache.",
+    "vomit": "For vomitting, give fluids in small amounts. If vomitting continues, please seek a doctor.",
+    "sore throat": "For a sore throat, give plenty of fluids and feed warm soup.",
+    "fever": "If the baby has a fever go urgently to the nearest health facility within 24 hours."
+  },
+  "breastfeeding_frequency": [
+    "After the first week, babies continue to need to nurse when they show signs of hunger. Their caloric needs will continue to increase. By nursing your baby every time he or she signals his or her hunger, your body will increase production to meet your baby’s needs.",
+    "There will be times when your baby seems to want to nurse more often; this is very normal. Many people call these times “growth spurts,”.  No matter what you call them, your baby’s increase in feeding frequency will stimulate your body to build your milk supply, and your nursing will generally soothe your baby.",
+    "Every baby is different, and every mother is different. Some mothers have larger storage capacities than others, so one baby may get more milk in one nursing session than another; that may mean a longer time between nursing sessions. Exclusively breastfed infants—which means your baby is receiving nothing but your milk, not even water—tend to nurse about 8 times a day, with a range from 4 to 13 sessions per day.",
+    "Many babies who start out nursing quite often in the first month nurse less often as they become more efficient and as the mother’s milk supply increases to meet their needs."
+  ],
+  "keep_child_healthy": [
+    "Try to feed your child and your family fresh food that looks and smells good. Eating stale food can cause infections like diarrhoea.",
+    "It’s common for children to catch worms from the ground. Clinics offer regular deworming treatments. Get your child dewormed at the clinic.",
+    "Prevent your child catching worms from the ground. Dress her in thick socks or shoes when she plays outside. Or let her play on a blanket.",
+    "Boil water before drinking it. Keep boiled water in clean containers and keep them covered. Scoop the water with clean scoops and dippers.",
+    "Use a separate bowl for your child's food. After use, wash it straightaway with hot, soapy water. This will prevent infections.",
+    "Keep your child away from anyone who coughs and sneezes. Many illnesses are spread through coughs and sneezes, including pneumonia."
+  ],
+  "get_child_to_eat_more": [
+    "Make feeding time fun. Make eye contact, smile and talk to your child. You will help her to eat and to learn at the same time.",
+    "If she is a slow eater, take your time and sit and talk to her while she eats. Eating is a new skill she has to learn. Be patient.",
+    "Is your child fussy or easily distracted while eating? Take her to a quiet place and gently encourage her to eat.",
+    "It can be tough feeding a child who refuses to eat. But be patient and keep trying. Talk to him gently as you feed him."
+  ],
+  "what_to_feed_sick_child": [
+    "When child is sick, breastfeed more frequently and/or offer additional food in small quantities. This will help the baby to fight the sickness, recover more quickly, and not lose weight.",
+    "Take time to patiently encourage your sick child to eat as his or her appetite may be decreased because of the illness."
+  ],
+  "how_to_know_if_child_is_growing_well": [
+    "Children’s growth should be monitored on a regular basis. Weight and growth should be measured monthly at your local health facility."
+  ],
+  "feeding_child_for_growth": [
+    "Children need iron to grow strong and resist diseases. Iron rich foods include eggs, red meat, green leafy vegetables, iron-fortified grains.",
+    "Animal-source foods are especially good for children to help them grow strong and lively",
+    "Dark-green leaves and yellow colored fruits and vegetables help the child to have healthy eyes and fewer infections",
+    "Children should eat vitamin A rich foods to prevent disease: including liver, eggs, dairy, fatty fish, mango, papaya, sweet potatoes, leafy vegetables, carrots and palm oil."
+  ],
+  "health_information": {
+    "child_development": {
+      "12": [
+        "Hold your hands together and let your child pull them apart. It’s a good game! Notice how much stronger he is getting as his muscles grow.",
+        "Sing to your child and show him how to clap along to the beat. It helps his coordination skills and he’ll love this special time with you. Try to interact with your child constantly. It will help her learn to talk. It will make her happy too! Ask your caregivers, too.",
+        "Scrunch up newspaper into balls and show your child how to drop them into a cardboard box. She’ll love it and it will help her coordination.",
+        "Your child loves spending time with you. He develops by playing and interacting with people. It’s best if you don’t let him watch TV yet."
+      ],
+      "15": [
+        "Give your child wooden spoons to bang together. Show her how. It may be noisy, but it will help her to develop grip and coordination.",
+        "Your child understands a great deal of what you say, but can't talk back to you. Encourage him to learn, by talking to him.",
+        "Show your child how to turn the pages of a book. Point out pictures or make up a story to fit the pictures. This helps his language develop.",
+        "Talk and sing to your child as much as you can. This will help him learn to talk. Encourage your family members to do the same.",
+        "At mealtimes, count out spoonfuls or the vegetables on her plate. This will help her understand numbers, and prepare her for maths in school"
+      ]
+    }
+  }
+}

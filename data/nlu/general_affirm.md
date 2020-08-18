@@ -1,0 +1,11 @@
+## intent:affirm
+- correct
+- ye
+- yeah
+- um yes
+- yes yes
+- right
+- yea
+- yes
+- i love that
+- yes

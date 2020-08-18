@@ -1,0 +1,13 @@
+## intent:supply_days_sick
+- They have been sick for [six](days_sick) days.
+- They are sick for [four](days_sick) days.
+- he is sick for [eight](days_sick) days.
+- she is sick for [one](days_sick) day.
+- [eight](days_sick) days sick
+- [three](days_sick) days
+- [two](days_sick) days
+- [one](days_sick) days
+- [five](days_sick) days
+- [sixteen](days_sick) days
+- [eighteen](days_sick) days
+- [two](days_sick) days

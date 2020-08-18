@@ -1,0 +1,17 @@
+## intent:nutrition_information
+- How much should I feed my child?
+- How often do I feed my baby?
+- What do babies eat?
+- How much should I feed my [six](months_old) month old child?
+- How much should I feed my [three](months_old) month old child?
+- How much should I feed my [fourteen](months_old) month old child?
+- My baby is [ten](months_old) months old, how much should they eat?
+- My child is [four](months_old) months old, what should they eat?
+- What should a [eight](months_old) month old be eating?
+- what do i feed my child
+- how do i feed my child
+- how should i feed my kid
+- how should i feed my baby
+- what should i feed my baby
+- What should a [one](months_old) month old eat
+- how do i feed a [two](months_old) month old
