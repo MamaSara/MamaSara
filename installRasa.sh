@@ -5,19 +5,19 @@ sudo apt-get dist-upgrade -y
 
 # Install initial build dependencies
 # Provides 
-# Enables pip3.6 to access pypi
+# Enables pip3.7 to access pypi
 sudo apt-get install libbz2-dev libssl-dev -y 
 
-# Get and install Python3.6
-wget https://www.python.org/ftp/python/3.6.8/Python-3.6.8.tar.xz
-tar -xvf Python-3.6.8.tar.xz
-cd Python-3.6.8
+# Get and install Python3.7
+wget https://www.python.org/ftp/python/3.7.8/Python-3.7.8.tar.xz
+tar -xvf Python-3.7.8.tar.xz
+cd Python-3.7.8
 sudo ./configure
 sudo make -j4
 sudo make install
 
-# Update Python3.6 packages
-python3.6 -m pip install --upgrade pip setuptools --user
+# Update Python3.7 packages
+python3.7 -m pip install --upgrade pip setuptools --user
 
 # Install additional dependencies
 # Enables access to Tensorflow whl
@@ -25,7 +25,7 @@ python3.6 -m pip install --upgrade pip setuptools --user
 sudo apt-get install python3-pip libhdf5-dev -y
 
 # Install Tensorflow
-python3.6 -m pip install tensorflow==1.14.0 --user
+python3.7 -m pip install tensorflow==1.14.0 --user
 
 # Install OpenCV Dependencies
 sudo apt-get install build-essential cmake unzip pkg-config -y
@@ -83,9 +83,9 @@ sed -i "s/^CONF_SWAPSIZE.*/CONF_SWAPSIZE=${SWAPSIZE}/" /etc/dphys-swapfile
 sudo /etc/init.d/dphys-swapfile stop
 sudo /etc/init.d/dphys-swapfile start
 
-# Link cv2 to Python3.6
-cd /usr/local/lib/python3.6/site-packages/
-sudo ln -s /usr/local/python/cv2/python-3.6/cv2.cpython-36m-arm-linux-gnueabihf.so cv2.so
+# Link cv2 to Python3.7
+cd /usr/local/lib/python3.7/site-packages/
+sudo ln -s /usr/local/python/cv2/python-3.7/cv2.cpython-36m-arm-linux-gnueabihf.so cv2.so
 
 # In case git is not installed
 sudo apt-get install git -y
@@ -101,36 +101,36 @@ wget https://github.com/RasaHQ/rasa/archive/1.4.0.zip && unzip 1.4.0.zip
 # Installing spaCy
 export BLIS_ARCH=generic
 cd ~/spaCy
-python3.6 -m pip install -r requirements.txt --user
-python3.6 setup.py build_ext --inplace
-python3.6 -m pip install . --user
+python3.7 -m pip install -r requirements.txt --user
+python3.7 setup.py build_ext --inplace
+python3.7 -m pip install . --user
 
 # Installing dopamine-rl
 cd ~/dopamine
 sed -i '/opencv-python/d' setup.py
-python3.6 -m pip install . --user
+python3.7 -m pip install . --user
 
 # Installing tensor2tensor
 cd ~/tensor2tensor
 sed -i '/opencv-python/d' setup.py
 sed -i '/dopamine-rl/d' setup.py
-python3.6 -m pip install . --user --force-reinstall
+python3.7 -m pip install . --user --force-reinstall
 
 # Installing other RASA dependencies
 sudo apt install libpq-dev/buster -y 
-python3.6 -m pip install psycopg2 --user
+python3.7 -m pip install psycopg2 --user
 
 # Installing RASA
 cd ~/rasa-1.4.0
 sed -i '/tensor2tensor/d' setup.py
 sed -i '/tensor2tensor/d' requirements.txt
-python3.6 -m pip install -r requirements.txt --user --force-reinstall
-python3.6 -m pip install . --user --force-reinstall
+python3.7 -m pip install -r requirements.txt --user --force-reinstall
+python3.7 -m pip install . --user --force-reinstall
 
 # Script exit
 echo ""
 echo ""
 echo "------------------------------------------------------------"
 echo "Congratulations! Rasa is now installed on your Raspberry Pi."
-echo "To test rasa out, run python3.6 -m rasa init and start "
+echo "To test rasa out, run python3.7 -m rasa init and start "
 echo "creating your bot!"
