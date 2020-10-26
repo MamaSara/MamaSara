@@ -18,6 +18,7 @@ cd Python-3.7.8
 sudo ./configure
 sudo make -j 4
 sudo make altinstall
+cd ~
 printf "\n\n\n"
 
 printf "#####Create and source a virtual environment, and upgrade pip and setuptools#####\n\n"
@@ -33,10 +34,12 @@ sudo apt-get install libpcre3 libpcre3-dev alsa-utils mpg321 lame libasound-dev 
 printf "\n\n\n"
 
 printf "#####Install additional dependancies with numpy#####\n\n"
-sudo pip3 install scipy libatlas-base-dev tensorflow pandas pyttsx3 SpeechRecognition pyaudio numpy 
+# TOOK OUT libatlas-base-dev from below line!!! MAKE SURE IT WORKS WITHOUT IT
+sudo pip3 install scipy tensorflow pandas pyttsx3 SpeechRecognition pyaudio numpy pyyaml
 printf "\n\n\n"
 
 printf "#####Install pytorch#####\n\n"
+cd MamaSaraV1_env
 git clone --recursive https://github.com/pytorch/pytorch
 cd pytorch
 export NO_CUDA=1
@@ -44,7 +47,9 @@ export NO_DISTRIBUTED=1
 export NO_MKLDNN=1 
 export NO_NNPACK=1 
 export NO_QNNPACK=1
+# In local run, had to do /home/pi/MamaSaraV1_env/bin/python3.7 -m pip3 install pyyaml to get it to work
 python3 setup.py build
+cd ..
 printf "\n\n\n"
 
 printf "#####Install PocketSphinx#####\n\n"
@@ -60,6 +65,7 @@ cd ../pocketsphinx-5prealpha
 ./configure
 make
 sudo make install
+cd ..
 printf "\n\n\n"
 
 printf "#####Clone git repository from Github#####\n\n"
@@ -77,13 +83,14 @@ git clone https://github.com/PINTO0309/Bazel_bin.git
 cd Bazel_bin/2.0.0/Raspbian_Debian_Buster_armhf/openjdk-8-jdk
 sudo chmod a+x install.sh
 sudo ./install.sh
+cd ../../../../
 printf "\n\n\n"
 
 printf "#####Install Tensorflow 2.1#####\n\n"
 pip install keras_applications==1.0.8 --no-deps
 pip install keras_preprocessing==1.1.0 --no-deps
 pip install h5py==2.9.0 pybind11 six wheel mock
-wget https://github.com/PINTO0309/Tensorflow-bin/raw/master/tensorflow-2.1.0-cp37-cp37m-linux_armv7l.whl
+wget https://github.com/Qengineering/Tensorflow-Raspberry-Pi/raw/master/tensorflow-2.1.0-cp37-cp37m-linux_armv7l.whl
 pip uninstall tensorflow -y
 pip install tensorflow-2.1.0-cp37-cp37m-linux_armv7l.whl
 printf "\n\n\n"
@@ -92,10 +99,13 @@ printf "#####Install tensorflow-addons 0.8.3#####\n\n"
 git clone https://github.com/tensorflow/addons.git
 cd addons
 git checkout r0.8
+##### Currently failing here, _TF_FLAGS is empty list produced by tf.sysconfig.get_link_flags()
 python ./configure.py
+#####
 bazel build --enable_runfiles build_pip_pkg
 bazel-bin/build_pip_pkg artifacts
 pip install artifacts/tensorflow_addons-*.whl
+cd ..
 printf "\n\n\n"
 
 printf "########## Install Rasa! - Note: poetry requires tensorflow-addons 0.8.2, but we installed tensorflow-addons 0.8.3 ##########\n\n"
