@@ -3,7 +3,6 @@ echo "#####Update and upgrade Raspberry Pi#####"
 sudo apt-get update
 sudo apt-get upgrade -y 
 sudo apt-get dist-upgrade -y
-echo "\n\n"
 
 echo "#####Install all dependencies for project with sudo######"
 sudo apt-get install -y libbz2-dev libssl-dev build-essential tk-dev libncurses5-dev libncursesw5-dev\
@@ -11,7 +10,6 @@ sudo apt-get install -y libbz2-dev libssl-dev build-essential tk-dev libncurses5
  zlib1g-dev libffi-dev openjdk-8-jdk libhdf5-dev libc-ares-dev libeigen3-dev gcc gfortran python-dev\
  libgfortran5 libatlas3-base libatlas-base-dev libopenblas-dev libopenblas-base libblas-dev liblapack-dev\
  cython libatlas-base-dev openmpi-bin libopenmpi-dev python3-dev python3-pip wget git 
-echo "\n\n"
 
 echo "#####Install python3.7.8#####"
 wget https://www.python.org/ftp/python/3.7.8/Python-3.7.8.tgz
@@ -20,23 +18,23 @@ cd Python-3.7.8
 sudo ./configure
 sudo make -j 4
 sudo make altinstall
-echo "\n\n"
+echo "\n\n\n"
 
 echo "#####Create and source a virtual environment, and upgrade pip and setuptools#####"
 python3.7 -m venv ./MamaSaraV1_env
 source ./MamaSaraV1_env/bin/activate
 pip install --upgrade pip
 pip install --upgrade setuptools
-echo "\n\n"
+echo "\n\n\n"
 
 echo "#####Install further dependancies with sudo#####"
 sudo apt-get install libpcre3 libpcre3-dev alsa-utils mpg321 lame libasound-dev portaudio19-dev bison swig\
  libopenblas-dev libblas-dev m4 cmake cython python3-yaml python3-setuptools -y
-echo "\n\n"
+echo "\n\n\n"
 
 echo "#####Install additional dependancies with numpy#####"
 sudo pip3 install scipy libatlas-base-dev tensorflow pandas pyttsx3 SpeechRecognition pyaudio numpy 
-echo "\n\n"
+echo "\n\n\n"
 
 echo "#####Install pytorch#####"
 git clone --recursive https://github.com/pytorch/pytorch
@@ -47,7 +45,7 @@ export NO_MKLDNN=1
 export NO_NNPACK=1 
 export NO_QNNPACK=1
 python3 setup.py build
-echo "\n\n"
+echo "\n\n\n"
 
 echo "#####Install PocketSphinx#####"
 wget https://sourceforge.net/projects/cmusphinx/files/sphinxbase/5prealpha/sphinxbase-5prealpha.tar.gz/download -O sphinxbase.tar.gz
@@ -62,24 +60,24 @@ cd ../pocketsphinx-5prealpha
 ./configure
 make
 sudo make install
-echo "\n\n"
+echo "\n\n\n"
 
 echo "#####Clone git repository from Github#####"
 git clone https://github.com/MamaSara/MamaSaraV1_PocketSphinx.git
-echo "\n\n"
+echo "\n\n\n"
 
-echo "\n\n########### Install of Rasa starts here ############"
+echo "\n\n\n########### Install of Rasa starts here ############"
 echo" #####Install Poetry - a package management software used by Rasa#####"
 curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
 source $HOME/.poetry/env
-echo "\n\n"
+echo "\n\n\n"
 
 echo "#####Install Bazel - to help with tensorflow dependancies#####"
 git clone https://github.com/PINTO0309/Bazel_bin.git
 cd Bazel_bin/2.0.0/Raspbian_Debian_Buster_armhf/openjdk-8-jdk
 sudo chmod a+x install.sh
 sudo ./install.sh
-echo "\n\n"
+echo "\n\n\n"
 
 echo "#####Install Tensorflow 2.1#####"
 pip install keras_applications==1.0.8 --no-deps
@@ -88,7 +86,7 @@ pip install h5py==2.9.0 pybind11 six wheel mock
 wget https://github.com/PINTO0309/Tensorflow-bin/raw/master/tensorflow-2.1.0-cp37-cp37m-linux_armv7l.whl
 pip uninstall tensorflow -y
 pip install tensorflow-2.1.0-cp37-cp37m-linux_armv7l.whl
-echo "\n\n"
+echo "\n\n\n"
 
 echo "#####Install tensorflow-addons 0.8.3#####"
 git clone https://github.com/tensorflow/addons.git
@@ -98,7 +96,7 @@ python ./configure.py
 bazel build --enable_runfiles build_pip_pkg
 bazel-bin/build_pip_pkg artifacts
 pip install artifacts/tensorflow_addons-*.whl
-echo "\n\n"
+echo "\n\n\n"
 
 echo "########## Install Rasa! - Note: poetry requires tensorflow-addons 0.8.2, but we installed tensorflow-addons 0.8.3 ##########"
 echo "########## For the moment, change 'poetry.lock' entry for tensorflow-addons to 0.8.3 ##########"
@@ -109,7 +107,7 @@ git checkout 1.8.x
 cp ../poetry.lock .
 cp ../pyproject.toml .
 make install
-echo "\n\n"
+echo "\n\n\n"
 
 echo "#####Install spaCy#####"
 git clone https://github.com/explosion/spaCy
@@ -118,7 +116,7 @@ cd spaCy
 pip install -r requirements.txt --user
 python setup.py build_ext --inplace
 pip install .
-echo "\n\n"
+echo "\n\n\n"
 
 ### Usage
 echo "Currently there is a bug with Rasa on Raspberry Pi. Discussed here:\n\
