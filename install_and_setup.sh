@@ -34,7 +34,7 @@ sudo apt-get install libpcre3 libpcre3-dev alsa-utils mpg321 lame libasound-dev 
 printf "\n\n\n"
 
 printf "#####Install additional dependancies with numpy#####\n\n"
-# TOOK OUT libatlas-base-dev from below line!!! MAKE SURE IT WORKS WITHOUT IT
+# TOOK OUT libatlas-base-dev from below line!!! TODO: MAKE SURE IT WORKS WITHOUT IT
 sudo pip3 install scipy tensorflow pandas pyttsx3 SpeechRecognition pyaudio numpy pyyaml
 printf "\n\n\n"
 
@@ -47,7 +47,7 @@ export NO_DISTRIBUTED=1
 export NO_MKLDNN=1 
 export NO_NNPACK=1 
 export NO_QNNPACK=1
-# In local run, had to do /home/pi/MamaSaraV1_env/bin/python3.7 -m pip3 install pyyaml to get it to work
+# In local run, had to do /home/pi/MamaSaraV1_env/bin/python3.7 -m pip3 install pyyaml to get it to work. TODO: FIX THIS FOR SCRIPT
 python3 setup.py build
 cd ..
 printf "\n\n\n"
@@ -79,11 +79,17 @@ source $HOME/.poetry/env
 printf "\n\n\n"
 
 printf "#####Install Bazel - to help with tensorflow dependancies#####\n\n"
-git clone https://github.com/PINTO0309/Bazel_bin.git
-cd Bazel_bin/2.0.0/Raspbian_Debian_Buster_armhf/openjdk-8-jdk
-sudo chmod a+x install.sh
-sudo ./install.sh
-cd ../../../../
+git clone https://github.com/koenvervloesem/bazel-on-arm.git
+cd bazel-on-arm
+#TODO: REQUIRES Y INPUT, DOESNT ACCEPT IT IN LINE. MAKE SURE IT WORKS WITHOUT IT
+sudo make requirements
+make bazel
+sudo make install
+#git clone https://github.com/PINTO0309/Bazel_bin.git
+#cd Bazel_bin/2.0.0/Raspbian_Debian_Buster_armhf/openjdk-8-jdk
+#sudo chmod a+x install.sh
+#sudo ./install.sh
+#cd ../../../../
 printf "\n\n\n"
 
 printf "#####Install Tensorflow 2.1#####\n\n"
@@ -95,28 +101,38 @@ pip uninstall tensorflow -y
 pip install tensorflow-2.1.0-cp37-cp37m-linux_armv7l.whl
 printf "\n\n\n"
 
-printf "#####Install tensorflow-addons 0.8.3#####\n\n"
-git clone https://github.com/tensorflow/addons.git
-cd addons
-git checkout r0.8
+printf "#####Install tensorflow-addons 0.7.1#####\n\n"
+git clone https://github.com/koenvervloesem/tensorflow-addons-on-arm.git
+sudo apt install python3-bashate shellcheck yamllint -y
+cd tensorflow-addons-on-arm
+#TODO: SCRIPT DOESN'T CURRENTLY SUPPORT "-y" OPTION. FIX!
+make tfa
+pip3 install addons-0.7.1/artifacts/tensorflow_addons-0.7.1-cp37-cp37m-linux_armv7l.whl
+#printf "#####Install tensorflow-addons 0.8.3#####\n\n"
+#git clone https://github.com/tensorflow/addons.git
+#cd addons
+#git checkout r0.8
 ##### Currently failing here, _TF_FLAGS is empty list produced by tf.sysconfig.get_link_flags()
-python ./configure.py
+#python ./configure.py
 #####
-bazel build --enable_runfiles build_pip_pkg
-bazel-bin/build_pip_pkg artifacts
-pip install artifacts/tensorflow_addons-*.whl
+#bazel build --enable_runfiles build_pip_pkg
+#bazel-bin/build_pip_pkg artifacts
+#pip install artifacts/tensorflow_addons-*.whl
 cd ..
 printf "\n\n\n"
 
 printf "########## Install Rasa! - Note: poetry requires tensorflow-addons 0.8.2, but we installed tensorflow-addons 0.8.3 ##########\n\n"
 printf "########## For the moment, change 'poetry.lock' entry for tensorflow-addons to 0.8.3 ##########\n\n"
-d ~
 git clone https://github.com/RasaHQ/rasa.git
 cd rasa
 git checkout 1.8.x
-cp ../poetry.lock .
-cp ../pyproject.toml .
+#cp ../poetry.lock .
+#cp ../pyproject.toml .
+pip install h5py==2.10.0
+pip install ninja==1.9.0.post1
 make install
+cd ..
+#rasabaster==0.7.25 install not working. TODO: fix
 printf "\n\n\n"
 
 printf "#####Install spaCy#####\n\n"
