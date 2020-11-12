@@ -33,7 +33,7 @@ sudo apt-get install libpcre3 libpcre3-dev alsa-utils mpg321 lame libasound-dev 
  libopenblas-dev libblas-dev m4 cmake cython python3-yaml python3-setuptools -y
 printf "\n\n\n"
 
-printf "#####Install additional dependancies with numpy#####\n\n"
+printf "#####Install additional dependancies with pip#####\n\n"
 # TOOK OUT libatlas-base-dev from below line!!! TODO: MAKE SURE IT WORKS WITHOUT IT
 sudo pip3 install scipy tensorflow pandas pyttsx3 SpeechRecognition pyaudio numpy pyyaml
 printf "\n\n\n"
@@ -98,7 +98,7 @@ pip install keras_preprocessing==1.1.0 --no-deps
 pip install h5py==2.9.0 pybind11 six wheel mock
 wget https://github.com/Qengineering/Tensorflow-Raspberry-Pi/raw/master/tensorflow-2.1.0-cp37-cp37m-linux_armv7l.whl
 pip uninstall tensorflow -y
-pip install tensorflow-2.1.0-cp37-cp37m-linux_armv7l.whl
+sudo -H pip3 install tensorflow-2.1.0-cp37-cp37m-linux_armv7l.whl
 printf "\n\n\n"
 
 printf "#####Install tensorflow-addons 0.7.1#####\n\n"
@@ -121,10 +121,11 @@ pip3 install addons-0.7.1/artifacts/tensorflow_addons-0.7.1-cp37-cp37m-linux_arm
 cd ..
 printf "\n\n\n"
 
-printf "########## Install Rasa! - Note: poetry requires tensorflow-addons 0.8.2, but we installed tensorflow-addons 0.8.3 ##########\n\n"
-printf "########## For the moment, change 'poetry.lock' entry for tensorflow-addons to 0.8.3 ##########\n\n"
+printf "########## Install Rasa! - Note: poetry requires tensorflow-addons 0.8.3, but we installed tensorflow-addons 0.7.1 ##########\n\n"
+printf "########## For the moment, change 'poetry.lock' entry for tensorflow-addons to 0.7.1 ##########\n\n"
 git clone https://github.com/RasaHQ/rasa.git
 cd rasa
+pip3 install -r requirements-dev.txt
 git checkout 1.8.x
 #cp ../poetry.lock .
 #cp ../pyproject.toml .
