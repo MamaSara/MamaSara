@@ -23,7 +23,7 @@ diff -ruN rasa-1.10.16/Dockerfile rasa-1.10.16-2/Dockerfile
    poetry install --no-dev --no-root --no-interaction && \
    poetry build -f wheel -n && \
    pip install --no-deps dist/*.whl && \
-@@ -51,13 +59,26 @@
+@@ -59,13 +67,24 @@
  # copy everything from /opt
  COPY --from=builder /opt/venv /opt/venv
  
@@ -38,9 +38,9 @@ diff -ruN rasa-1.10.16/Dockerfile rasa-1.10.16-2/Dockerfile
 +  # For TensorFlow Addons
 +  libatomic1
 +
-
-+# Install pandas dependencies
-+#RUN sudo pip3 install pandas
+#+# Install pandas dependencies
+#+RUN pip3 install pandas
+#+
  # make sure we use the virtualenv
  ENV PATH="/opt/venv/bin:$PATH"
  
@@ -63,13 +63,22 @@ diff -ruN rasa-1.10.16/pip.conf rasa-1.10.16-2/pip.conf
 diff -ruN rasa-1.10.16/pyproject.toml rasa-1.10.16-2/pyproject.toml
 --- rasa-1.10.16/pyproject.toml	2020-07-02 11:19:23.000000000 +0100
 +++ rasa-1.10.16-2/pyproject.toml	2020-07-05 10:19:36.872528565 +0100
-@@ -114,7 +114,7 @@
+@@ -64,7 +64,7 @@
+ showcontent = false
+ 
+ [tool.poetry.dependencies]
+-python = ">=3.6,<3.8"
++python = ">=3.6.1,<3.8"
+ boto3 = "^1.12"
+ requests = "^2.23"
+ matplotlib = ">=3.1,<3.3"
+@@ -114,7 +114,8 @@
  psycopg2-binary = "~2.8.2"
  PyJWT = "~1.7"
  python-dateutil = "~2.8"
 -tensorflow = "~2.1"
 +tensorflow = "2.1.0"
++pandas = "1.1.4"
  tensorflow_hub = ">=0.7,<0.9"
  tensorflow-addons = "^0.7.1"
  tensorflow-estimator = "2.1.0"
-+pandas = "1.1.3"
