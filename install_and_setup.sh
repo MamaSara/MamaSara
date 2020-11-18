@@ -94,7 +94,7 @@ make docker
 cd ~
 printf "\n\n------------------------------------------------------------"
 printf "Congratulations! The MamaSaraV1 environment is now installed and ready for use on your Raspberry Pi"
-printf "To test it out using the voice assistant:\n\t1. rasa run actions\n\t2. rasa shell"
-printf "To test it out using the voice assistant:\n\t1. rasa run actions\n\t2. rasa run -m models --endpoints endpoints.yml\n\t3. python3 run.py"
+printf "To test it out using the voice assistant:\n\t1. docker-compose run rasa run actions\n\t2. docker-compose run rasa shell"
+printf "To test it out using the voice assistant:\n\t1. docker-compose run rasa run actions\n\t2. docker-compose run rasa run -m models --endpoints endpoints.yml\n\t3. python3 run.py"
 printf "IMPORTANT: Remember to logout of raspberry pi to enable Docker with the correct permissions"
 printf "Enjoy MamaSaraV1!"
