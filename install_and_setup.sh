@@ -16,23 +16,6 @@ sudo apt-get install -y libbz2-dev libssl-dev build-essential tk-dev libncurses5
  cython libatlas-base-dev openmpi-bin libopenmpi-dev python3-dev python3-pip wget git curl
 print "\n\n\n"
 
-#TODO Need to first, manually, install docker and docker-compose. steps:
-printf "#####Install Docker and Docker-Compose#####\n\n"
-curl https://raw.githubusercontent.com/oznu/docker-homebridge/master/raspbian-installer.sh?v=2019-12-11 -o get-homebridge.sh
-chmod u+x get-homebridge.sh
-./get-homebridge.sh
-#curl -sSL https://get.docker.com -o get-docker.sh
-#sudo sh get-docker.sh
-#sudo usermod -aG docker ${USER} #OPTIONAL STEP TO NOT REQUIRE SUDO EACH TIME
-#sudo su - ${USER} #REQUIRED ONLY IF RAN PREVIOUS STEP
-##get docker compose deps
-#sudo apt-get install libffi-dev libssl-dev
-#sudo apt install python3-dev
-#sudo apt-get install -y python3 python3-pip
-#sudo pip3 install docker-compose
-printf "\n\n\n"
-#TODO: Check if this works in script
-
 printf "#####Install python3.7.8#####\n\n"
 wget https://www.python.org/ftp/python/3.7.8/Python-3.7.8.tgz
 sudo tar zxf Python-3.7.8.tgz
@@ -48,6 +31,18 @@ python3.7 -m venv ./MamaSaraV1_env
 source ./MamaSaraV1_env/bin/activate
 pip install --upgrade pip
 pip install --upgrade setuptools
+cd MamaSaraV1_env
+printf "\n\n\n"
+
+printf "#####Install Docker and Docker-Compose#####\n\n"
+curl https://raw.githubusercontent.com/oznu/docker-homebridge/master/raspbian-installer.sh?v=2019-12-11 -o get-homebridge.sh
+chmod u+x get-homebridge.sh
+./get-homebridge.sh
+printf "Read the README file located at: https://github.com/oznu/docker-homebridge/wiki/Homebridge-on-Raspberry-Pi#quick-install/README for more information about this script"
+printf "To manage Homebridge go to http://<ip of raspberry pi>:8080 in your browser. \n
+ From here you can install, remove and update plugins, modify the Homebridge config.json\n
+ and restart Homebridge. The default username is admin with password admin. Remember you \n
+ will need to restart Homebridge to apply any changes you make to the config.json."
 printf "\n\n\n"
 
 printf "#####Install further dependancies with sudo#####\n\n"
@@ -60,7 +55,6 @@ sudo pip3 install scipy tensorflow pandas pyttsx3 SpeechRecognition pyaudio nump
 printf "\n\n\n"
 
 printf "#####Install pytorch#####\n\n"
-cd MamaSaraV1_env
 git clone --recursive https://github.com/pytorch/pytorch
 cd pytorch
 export NO_CUDA=1
@@ -102,5 +96,5 @@ printf "\n\n------------------------------------------------------------"
 printf "Congratulations! The MamaSaraV1 environment is now installed and ready for use on your Raspberry Pi"
 printf "To test it out using the voice assistant:\n\t1. rasa run actions\n\t2. rasa shell"
 printf "To test it out using the voice assistant:\n\t1. rasa run actions\n\t2. rasa run -m models --endpoints endpoints.yml\n\t3. python3 run.py"
-printf "Be sure to logout of raspberry pi to enable Docker with the correct permissions"
+printf "IMPORTANT: Remember to logout of raspberry pi to enable Docker with the correct permissions"
 printf "Enjoy MamaSaraV1!"
