@@ -10,3 +10,7 @@ services:
       - ./:/app
     command:
       - run
+  app:
+    image: pi/ms_pocketsphinx:rasa_actions 
+    expose:
+      - 5055
