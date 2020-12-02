@@ -8,11 +8,12 @@ if __name__ == "__main__":
         # STT portion of pipeline
         subprocess.call(['arecord', '-f', 'S16_LE', '-d', '5', '-r', '16000', '-c1', '--device', 'plughw:Device,0', 'testaudio.wav'])
         
-        print("\nMamaSara V2 thinks you said:")
-        subprocess.call(['deepspeech/run_STT.sh'], shell=True)
-        user_msg_file = open("results.txt", "r")
+        print("\nMamaSara V1 thinks you said:")
+        subprocess.call(['pocketsphinx/STTscript.sh'], shell=True)
+        user_msg_file = open("sphinx_results.txt", "r")
         user_msg = user_msg_file.read()
         user_msg_file.close()
+        print(user_msg)
         print("\n")
 
         if (user_msg.strip() == "bye"):

@@ -1,6 +1,9 @@
 printf "Thank you for using this script"
 printf "This script is stored at: https://github.com/MamaSara/MamaSaraV1_PocketSphinx.git"
+printf "This script will automatically be run in the pi home directory"
 printf "The installation is starting......\n\n\n"
+
+cd ~
 
 printf "#####Update and upgrade Raspberry Pi#####\n\n"
 sudo apt-get update
@@ -75,7 +78,11 @@ cd sphinxbase-5prealpha
 ./configure --enable-fixed
 make
 sudo make install
-cd ../pocketsphinx-5prealpha
+
+cd ../pocketsphinx-5realpha
+# Update continous.c file for pocketsphinx to suit our purposes
+cp ~/MamaSaraV1/MamaSaraV1_PocketSphinx/pocketsphinx/continous.c src/programs/
+# Continue with setup
 ./configure
 make
 sudo make install
