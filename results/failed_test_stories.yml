@@ -1,0 +1,64 @@
+version: "2.0"
+stories:
+- story: happy path 1 (/var/folders/88/zpmfqzzj05l7www4s5dtch340000gn/T/tmpk6hxx8qx/7e414595fb044c149963e0e58711e552_test_stories.yml)
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: action_listen  # predicted: action_default_fallback
+  - intent: mood_great
+  - action: utter_happy
+- story: happy path 2 (/var/folders/88/zpmfqzzj05l7www4s5dtch340000gn/T/tmpk6hxx8qx/7e414595fb044c149963e0e58711e552_test_stories.yml)
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: action_listen  # predicted: action_default_fallback
+  - intent: mood_great
+  - action: utter_happy
+  - intent: goodbye
+  - action: utter_goodbye  # predicted: action_default_fallback
+  - action: action_listen  # predicted: action_default_fallback
+- story: sad path 1 (/var/folders/88/zpmfqzzj05l7www4s5dtch340000gn/T/tmpk6hxx8qx/7e414595fb044c149963e0e58711e552_test_stories.yml)
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: action_listen  # predicted: action_default_fallback
+  - intent: mood_unhappy  # predicted: nlu_fallback: not good
+  - action: utter_cheer_up  # predicted: action_default_fallback
+  - action: utter_did_that_help  # predicted: action_default_fallback
+  - action: action_listen  # predicted: action_default_fallback
+  - intent: affirm
+  - action: utter_happy  # predicted: action_default_fallback
+- story: sad path 2 (/var/folders/88/zpmfqzzj05l7www4s5dtch340000gn/T/tmpk6hxx8qx/7e414595fb044c149963e0e58711e552_test_stories.yml)
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: action_listen  # predicted: action_default_fallback
+  - intent: mood_unhappy  # predicted: nlu_fallback: not good
+  - action: utter_cheer_up  # predicted: action_default_fallback
+  - action: utter_did_that_help  # predicted: action_default_fallback
+  - action: action_listen  # predicted: action_default_fallback
+  - intent: deny  # predicted: sick_child: not really
+  - action: utter_goodbye  # predicted: action_default_fallback
+  - action: action_listen  # predicted: action_default_fallback
+- story: sad path 3 (/var/folders/88/zpmfqzzj05l7www4s5dtch340000gn/T/tmpk6hxx8qx/7e414595fb044c149963e0e58711e552_test_stories.yml)
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: action_listen  # predicted: action_default_fallback
+  - intent: mood_unhappy  # predicted: mood_great: very terrible
+  - action: utter_cheer_up  # predicted: action_default_fallback
+  - action: utter_did_that_help  # predicted: action_default_fallback
+  - action: action_listen  # predicted: action_default_fallback
+  - intent: deny
+  - action: utter_goodbye  # predicted: action_default_fallback
+  - action: action_listen  # predicted: action_default_fallback
+- story: say goodbye (/var/folders/88/zpmfqzzj05l7www4s5dtch340000gn/T/tmpk6hxx8qx/7e414595fb044c149963e0e58711e552_test_stories.yml)
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye  # predicted: action_default_fallback
+  - action: action_listen  # predicted: action_default_fallback
+- story: bot challenge (/var/folders/88/zpmfqzzj05l7www4s5dtch340000gn/T/tmpk6hxx8qx/7e414595fb044c149963e0e58711e552_test_stories.yml)
+  steps:
+  - intent: bot_challenge  # predicted: nlu_fallback: are you a bot?
+  - action: utter_iamabot  # predicted: action_default_fallback
+  - action: action_listen  # predicted: action_default_fallback

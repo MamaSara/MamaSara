@@ -1,0 +1,149 @@
+[
+  {
+    "text": "They have been sick for six days.",
+    "entities": [
+      {
+        "start": 24,
+        "end": 27,
+        "value": "six",
+        "entity": "days_sick"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "months_old",
+        "start": 24,
+        "end": 27,
+        "confidence_entity": 0.6424213647842407,
+        "value": "six",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "They are sick for four days.",
+    "entities": [
+      {
+        "start": 18,
+        "end": 22,
+        "value": "four",
+        "entity": "days_sick"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "months_old",
+        "start": 18,
+        "end": 22,
+        "confidence_entity": 0.7529443502426147,
+        "value": "four",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "three days",
+    "entities": [
+      {
+        "start": 0,
+        "end": 5,
+        "value": "three",
+        "entity": "days_sick"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "months_old",
+        "start": 0,
+        "end": 5,
+        "confidence_entity": 0.5725405216217041,
+        "value": "three",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "eighteen days",
+    "entities": [
+      {
+        "start": 0,
+        "end": 8,
+        "value": "eighteen",
+        "entity": "days_sick"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "months_old",
+        "start": 0,
+        "end": 8,
+        "confidence_entity": 0.5001837611198425,
+        "value": "eighteen",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "what can i do to help my child develop",
+    "entities": [
+      {
+        "start": 25,
+        "end": 38,
+        "value": "child_development",
+        "entity": "health"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "health",
+        "start": 31,
+        "end": 38,
+        "confidence_entity": 0.9887838959693909,
+        "value": "develop",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "how can i support my child's development",
+    "entities": [
+      {
+        "start": 21,
+        "end": 40,
+        "value": "child_development",
+        "entity": "health"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "health",
+        "start": 29,
+        "end": 40,
+        "confidence_entity": 0.9875826239585876,
+        "value": "development",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "how can my child develop better",
+    "entities": [
+      {
+        "start": 11,
+        "end": 24,
+        "value": "child_development",
+        "entity": "health"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "health",
+        "start": 17,
+        "end": 24,
+        "confidence_entity": 0.985905647277832,
+        "value": "develop",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  }
+]

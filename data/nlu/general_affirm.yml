@@ -1,0 +1,13 @@
+version: "2.0"
+nlu:
+- intent: affirm
+  examples: |
+    - correct
+    - ye
+    - yeah
+    - um yes
+    - yes yes
+    - right
+    - yea
+    - yes
+    - i love that

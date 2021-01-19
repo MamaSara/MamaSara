@@ -1,0 +1,6 @@
+version: "2.0"
+nlu:
+- intent: keep_child_healthy
+  examples: |
+    - how do I keep my child healthy?
+    - how do I stop my child from getting sick?

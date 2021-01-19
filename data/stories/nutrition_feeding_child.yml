@@ -1,0 +1,47 @@
+version: "2.0"
+stories:
+- story: get child to eat more
+  steps:
+  - intent: get_child_to_eat_more
+  - action: action_get_child_to_eat_more
+  - action: utter_more_information
+  - intent: affirm
+  - action: action_get_child_to_eat_more
+  - action: utter_more_information
+- story: get child to eat more - no more info
+  steps:
+  - intent: get_child_to_eat_more
+  - action: action_get_child_to_eat_more
+  - action: utter_more_information
+  - intent: deny
+  - action: action_chat_restart
+- story: what to feed sick child
+  steps:
+  - intent: what_to_feed_sick_child
+  - action: action_what_to_feed_sick_child
+  - action: utter_more_information
+  - intent: affirm
+  - action: action_what_to_feed_sick_child
+  - action: utter_more_information
+- story: what to feed sick child - no more info
+  steps:
+  - intent: what_to_feed_sick_child
+  - action: action_what_to_feed_sick_child
+  - action: utter_more_information
+  - intent: deny
+  - action: action_chat_restart
+- story: what to feed child for healthy growth
+  steps:
+  - intent: feeding_child_for_growth
+  - action: action_feeding_child_for_growth
+  - action: utter_more_information
+  - intent: affirm
+  - action: action_feeding_child_for_growth
+  - action: utter_more_information
+- story: what to feed child for healthy growth - no more info
+  steps:
+  - intent: feeding_child_for_growth
+  - action: action_feeding_child_for_growth
+  - action: utter_more_information
+  - intent: deny
+  - action: action_chat_restart

@@ -1,0 +1,25 @@
+version: "2.0"
+stories:
+- story: child development - give response based on age
+  steps:
+  - intent: health_information
+    entities:
+    - health: child_development
+  - action: health_diagnostic_info_form
+  - active_loop: health_diagnostic_info_form
+  - slot_was_set:
+    - health:
+      - child_development
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_general_health
+  - action: utter_more_information
+  - intent: affirm
+  - action: action_general_health
+  - action: utter_more_information
+- story: how do i know if my child is growing well - there is no more info
+  steps:
+  - intent: how_to_know_if_child_is_growing_well
+  - action: action_how_to_know_if_child_is_growing_well
+  - action: action_chat_restart

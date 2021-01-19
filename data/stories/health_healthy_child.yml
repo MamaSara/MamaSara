@@ -1,0 +1,17 @@
+version: "2.0"
+stories:
+- story: how to keep child healthy
+  steps:
+  - intent: keep_child_healthy
+  - action: action_keep_child_healthy
+  - action: utter_more_information
+  - intent: affirm
+  - action: action_keep_child_healthy
+  - action: utter_more_information
+- story: how to keep child healthy - no more info
+  steps:
+  - intent: keep_child_healthy
+  - action: action_keep_child_healthy
+  - action: utter_more_information
+  - intent: deny
+  - action: action_chat_restart

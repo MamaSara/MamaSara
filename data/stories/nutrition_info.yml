@@ -1,0 +1,11 @@
+version: "2.0"
+stories:
+- story: nutrition_information - age needs to be asked for
+  steps:
+  - intent: nutrition_information
+  - action: nutrition_diagnostic_info_form
+  - active_loop: nutrition_diagnostic_info_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_nutrition_information

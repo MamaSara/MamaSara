@@ -1,0 +1,11 @@
+version: "2.0"
+nlu:
+- intent: health_information
+  examples: |
+    - what can i do to help my [child develop]{"entity": "health", "value": "child_development"}
+    - how can i support my [child's development]{"entity": "health", "value": "child_development"}
+    - how can my [child develop]{"entity": "health", "value": "child_development"} better
+- synonym: child_development
+  examples: |
+    - child develop
+    - child's development

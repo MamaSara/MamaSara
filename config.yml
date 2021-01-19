@@ -1,30 +1,46 @@
 language: en
 pipeline:
-- name: WhitespaceTokenizer
-- name: CRFEntityExtractor
-- name: CountVectorsFeaturizer
-  OOV_token: oov
-  token_pattern: (?u)\b\w+\b
-- name: CountVectorsFeaturizer
-  analyzer: char_wb
-  min_ngram: 1
-  max_ngram: 4
-- name: EmbeddingIntentClassifier
-  epochs: 50
-  loss_type: margin
-- name: EntitySynonymMapper
+# # No configuration for the NLU pipeline was provided. The following default pipeline was used to train your model.
+# # If you'd like to customize it, uncomment and adjust the pipeline.
+# # See https://rasa.com/docs/rasa/tuning-your-model for more information.
+  - name: WhitespaceTokenizer
+  - name: CRFEntityExtractor
+  - name: CountVectorsFeaturizer
+    OOV_token: oov
+    token_pattern: (?u)\b\w+\b
+  - name: CountVectorsFeaturizer
+    analyzer: char_wb
+    min_ngram: 1
+    max_ngram: 4
+  - name: LexicalSyntacticFeaturizer
+    #features: []
+  - name: "RegexFeaturizer"
+  # Text will be processed with case sensitive as default
+  "case_sensitive": True
+  - name: DIETClassifier
+    epochs: 50
+    loss_type: margin
+  - name: EntitySynonymMapper
+  #- name: ResponseSelector
+  #  epochs: 50
+  - name: FallbackClassifier
+    threshold: 0.6
+    ambiguity_threshold: 0.1
+
 policies:
-- name: EmbeddingPolicy
-  max_history: 10
-  epochs: 20
-  batch_size:
-  - 32
-  - 64
-- max_history: 6
-  name: AugmentedMemoizationPolicy
-- name: FallbackPolicy
-  nlu_threshold: 0.6
-  core_threshold: 0.3
-  fallback_action_name: action_default_fallback
-- name: FormPolicy
-- name: MappingPolicy
+# # No configuration for policies was provided. The following default policies were used to train your model.
+# # If you'd like to customize them, uncomment and adjust the policies.
+# # See https://rasa.com/docs/rasa/policies for more information.
+ - name: RulePolicy
+   core_fallback_threshold: 0.3
+   core_fallback_action_name: action_default_fallback
+ - name: TEDPolicy
+   max_history: 10
+   epochs: 20
+   batch_size:
+   - 32
+   - 64
+ - name: AugmentedMemoizationPolicy
+   max_history: 6
+
+rest:

@@ -1,78 +1,51 @@
-%YAML 1.1
----
-actions:
-- action_default_ask_affirmation
-- action_default_fallback
-- action_chat_restart
-- action_nutrition_information
-- action_sick_child
-- action_breastfeeding_frequency
-- action_keep_child_healthy
-- action_get_child_to_eat_more
-- action_what_to_feed_sick_child
-- action_how_to_know_if_child_is_growing_well
-- action_feeding_child_for_growth
-- action_general_health
-- utter_more_information
-- utter_did_that_help
-- utter_goodbye
-- utter_greet
-- utter_happy
-- utter_headache
-- utter_intro
-- utter_supply_age
-- utter_supply_days_sick
-- utter_ask_headache
-- utter_ask_sore_throat
-- utter_ask_nausea
-- utter_ask_days_sick
-- utter_ask_months_old
-entities:
-- days_sick
-- months_old
-- years
-- headache
-- sore_throat
-- nausea
-- symptom
-- health
-forms:
-- illness_diagnostic_info_form
-- nutrition_diagnostic_info_form
-- health_diagnostic_info_form
+version: "2.0"
+
 intents:
-- supply_age
-- sick_child
-- supply_days_sick
-- affirm
-- nutrition_information
-- health_information
-- how_often_to_breastfeed
-- keep_child_healthy
-- get_child_to_eat_more
-- what_to_feed_sick_child
-- how_to_know_if_child_is_growing_well
-- feeding_child_for_growth
-- thanks
-- stop
-- greet
-- goodbye
-- deny
-- mood_great
-- out_of_scope
+  - supply_age
+  - sick_child
+  - supply_days_sick
+  - affirm
+  - nutrition_information
+  - health_information
+  - how_often_to_breastfeed
+  - keep_child_healthy
+  - get_child_to_eat_more
+  - what_to_feed_sick_child
+  - how_to_know_if_child_is_growing_well
+  - feeding_child_for_growth
+  - thanks
+  - stop
+  - greet
+  - goodbye
+  - deny
+  - mood_great
+  - out_of_scope
+
+entities:
+  - days_sick
+  - months_old
+  - years
+  - headache
+  - sore_throat
+  - nausea
+  - symptom
+  - health
+
 slots:
   age:
     type: text
   days_sick:
     auto_fill: false
-    type: unfeaturized
+    type: any
+    influence_conversation: false
   entity_extractor:
     type: categorical
     values:
     - crfentityextractor
     - spacyentityextractor
   feedback_message:
-    type: unfeaturized
+    type: any
+    influence_conversation: false
   feedback_value:
     type: categorical
     values:
@@ -80,16 +53,20 @@ slots:
     - negative
   headache:
     auto_fill: false
-    type: unfeaturized
+    type: any
+    influence_conversation: false
   sore_throat:
     auto_fill: false
-    type: unfeaturized
+    type: any
+    influence_conversation: false
   nausea:
     auto_fill: false
-    type: unfeaturized
+    type: any
+    influence_conversation: false
   months_old:
     auto_fill: false
-    type: unfeaturized
+    type: any
+    influence_conversation: false
   name:
     type: text
   question_domain:
@@ -98,7 +75,8 @@ slots:
     - nutrition
     - health
   requested_slot:
-    type: unfeaturized
+    type: any
+    influence_conversation: false
   symptom:
     auto_fill: false
     type: list
@@ -107,14 +85,16 @@ slots:
     type: list
   years:
     auto_fill: false
-    type: unfeaturized
+    type: any
+    influence_conversation: false
   iteration_num:
     type: text
     initial_value: "0"
   fallback:
     type: text
     initial_value: "0"
-templates:
+
+responses:
   utter_default:
   - text: Sorry, I didn't get that. Could you please rephrase?
   - text: I didn't understand, could you rephrase that?
@@ -153,3 +133,56 @@ templates:
   - text: What symptoms is your child experiencing?
   utter_more_information:
   - text: Would you like to hear more information?
+  utter_please_rephrase:
+  - text: I'm sorry, I didn't quite understand that. Could you rephrase?
+
+actions:
+  - action_default_ask_affirmation
+  - action_default_fallback
+  - action_chat_restart
+  - action_nutrition_information
+  - action_sick_child
+  - action_breastfeeding_frequency
+  - action_keep_child_healthy
+  - action_get_child_to_eat_more
+  - action_what_to_feed_sick_child
+  - action_how_to_know_if_child_is_growing_well
+  - action_feeding_child_for_growth
+  - action_general_health
+  - utter_more_information
+  - utter_did_that_help
+  - utter_goodbye
+  - utter_greet
+  - utter_happy
+  - utter_headache
+  - utter_intro
+  - utter_supply_age
+  - utter_supply_days_sick
+  - utter_ask_headache
+  - utter_ask_sore_throat
+  - utter_ask_nausea
+  - utter_ask_days_sick
+  - utter_ask_months_old
+
+forms:
+  illness_diagnostic_info_form:
+    months_old:
+    - type: from_entity
+      entity: months_old
+    days_sick:
+    - type: from_entity
+      entity: days_sick
+    symptom:
+    - type: from_entity
+      entity: symptom
+  nutrition_diagnostic_info_form:
+    months_old:
+      - type: from_entity
+        entity: months_old
+  health_diagnostic_info_form:
+    months_old:
+    - type: from_entity
+      entity: months_old
+    health:
+    - type: from_entity
+      entity: health

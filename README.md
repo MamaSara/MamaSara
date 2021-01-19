@@ -4,7 +4,6 @@
  health and wellness of young children aged 0 to 2.
 
 - This is the first iteration of the code base, using CMUSphinx as the STT engine, Rasa's NLU engine, and Pyttsx3 as the TTS engine.
-- This code base has been put together by the 2019/2020 Capstone team, the original repository can be found here: https://github.com/EricBrine/Mama-Sara 
 
 ## Files
 - **data/nlu.md** contains training examples for the NLU model  
