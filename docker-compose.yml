@@ -7,7 +7,7 @@ services:
     ports:
       - 5005:5005
     volumes:
-      - ./:/app
+      - ./rasa/:/app
     network_mode: host
     command:
       - run
