@@ -20,8 +20,7 @@ policies:
   batch_size:
   - 32
   - 64
-- max_history: 6
-  name: AugmentedMemoizationPolicy
+- name: AugmentedMemoizationPolicy
 - name: FallbackPolicy
   nlu_threshold: 0.6
   core_threshold: 0.3

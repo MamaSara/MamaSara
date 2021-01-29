@@ -9,7 +9,7 @@
 - [eight](months_old) months old
 - [three](months_old) months
 - [two](months_old) months
-- [one](months_old) months
+- [one](months_old) month
 - [five](months_old) months
 - [sixteen](months_old) months
 - [eighteen](months_old) months
@@ -19,6 +19,7 @@
 - [four](months_old)
 - [three](months_old)
 - [ten](months_old)
+- [twenty](months_old)
 - [five](months_old) months old
 - [five](months_old) months old
 

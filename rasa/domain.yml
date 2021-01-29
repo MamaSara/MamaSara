@@ -13,6 +13,7 @@ actions:
 - action_how_to_know_if_child_is_growing_well
 - action_feeding_child_for_growth
 - action_general_health
+- action_repeat
 - utter_more_information
 - utter_did_that_help
 - utter_goodbye
@@ -59,7 +60,9 @@ intents:
 - goodbye
 - deny
 - mood_great
+- mood_unhappy
 - out_of_scope
+- repeat
 slots:
   age:
     type: text
@@ -126,9 +129,9 @@ templates:
   utter_did_that_help:
   - text: Did that help you?
   utter_goodbye:
-  - text: Bye
+  - text: Goodbye
   utter_greet:
-  - text: Hey! How are you?
+  - text: Hello!
   utter_happy:
   - text: Great, carry on!
   utter_headache:
