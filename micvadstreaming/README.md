@@ -1,3 +1,6 @@
+The "mvs_single.py" micvadstreaming script (adapted from https://github.com/mozilla/DeepSpeech-examples/) allows for real-time voice decoding using Mozilla DeepSpeech.\
+VAD stands for Voice Activity Decection.
+
 ## Instructions to Run Demo Script
 
 1. Pull docker image from dockerhub onto Raspberry Pi, docker image is linux/armv7 based:\
