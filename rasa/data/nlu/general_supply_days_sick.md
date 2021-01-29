@@ -6,7 +6,7 @@
 - [eight](days_sick) days sick
 - [three](days_sick) days
 - [two](days_sick) days
-- [one](days_sick) days
+- [one](days_sick) day
 - [five](days_sick) days
 - [sixteen](days_sick) days
 - [eighteen](days_sick) days

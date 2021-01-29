@@ -40,12 +40,7 @@ class ActionRepeat(Action):
                 if "buttons" in data:
                     dispatcher.utter_message(text=tracker_list[i].get('text'), buttons=data["buttons"])
                 else:
-                    print(tracker_list[i].get('text'))
                     dispatcher.utter_message(text=tracker_list[i].get('text'))
             i -= 1
 
         return []
-#def run(self, dispatcher, tracker, domain):
- #   if len(tracker.events) >= 3:
-  #      dispatcher.utter_message(tracker.events[-3].get('text'))
-   # return [UserUtteranceReverted()]
