@@ -14,6 +14,12 @@ pipeline:
   loss_type: margin
 - name: EntitySynonymMapper
 policies:
+- name: EmbeddingPolicy
+  max_history: 10
+  epochs: 20
+  batch_size:
+  - 32
+  - 64
 - name: AugmentedMemoizationPolicy
 - name: FallbackPolicy
   nlu_threshold: 0.6

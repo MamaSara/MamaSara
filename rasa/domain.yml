@@ -60,6 +60,7 @@ intents:
 - goodbye
 - deny
 - mood_great
+- mood_unhappy
 - out_of_scope
 - repeat
 slots:
