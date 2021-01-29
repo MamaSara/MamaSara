@@ -13,6 +13,7 @@ actions:
 - action_how_to_know_if_child_is_growing_well
 - action_feeding_child_for_growth
 - action_general_health
+- action_repeat
 - utter_more_information
 - utter_did_that_help
 - utter_goodbye

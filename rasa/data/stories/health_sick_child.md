@@ -1,9 +1,11 @@
 ## sick - one illness
 * sick_child
+    - action_default_ask_affirmation
     - illness_diagnostic_info_form
     - form{"name": "illness_diagnostic_info_form"}
     - form{"name": null}
     - action_sick_child
+    - action_repeat
 
 ## sick child - multiple illnesses
 * sick_child{"symptom": ["headache", "coughing"]}
