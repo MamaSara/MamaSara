@@ -41,5 +41,5 @@ From the MVSscript.sh file, these commands should be run:\
 ## To Build Docker Image from the Dockerfile (on MacOS)
 
 Command to Build docker image:\
-Ensure to run `docker login` first.
+Ensure to run `docker login` first.\
 `docker buildx build --platform linux/arm/v7 -t cwrogers1/mamasara-deepspeech:micvad --push .`\
