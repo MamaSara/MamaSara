@@ -1,8 +1,13 @@
 ## intent:repeat
 - could you repeat that
 - say that again
+- repeat that
 - repeat that please
+- please repeat that
+- please repeat what you said
 - what
+- what did you say
+- repeat
 - i didn't catch that
 - say again
 

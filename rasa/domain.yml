@@ -61,6 +61,7 @@ intents:
 - deny
 - mood_great
 - out_of_scope
+- repeat
 slots:
   age:
     type: text
