@@ -42,4 +42,4 @@ From the MVSscript.sh file, these commands should be run:\
 
 Command to Build docker image:\
 Ensure to run `docker login` first.\
-`docker buildx build --platform linux/arm/v7 -t cwrogers1/mamasara-deepspeech:micvad --push .`\
+`docker buildx build --platform linux/arm/v7 -t cwrogers1/mamasara-deepspeech:micvad --push .`
