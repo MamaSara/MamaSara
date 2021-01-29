@@ -1,0 +1,5 @@
+*__pycache__*
+GPIO_peripherals/button/test_audio.py
+deepspeech/results.txt
+rasa/response.txt
+speechrecording/request.wav
