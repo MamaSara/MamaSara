@@ -129,9 +129,9 @@ templates:
   utter_did_that_help:
   - text: Did that help you?
   utter_goodbye:
-  - text: Bye
+  - text: Goodbye
   utter_greet:
-  - text: Hey! How are you?
+  - text: Hello!
   utter_happy:
   - text: Great, carry on!
   utter_headache:

@@ -11,5 +11,5 @@
 - [sixteen](days_sick) days
 - [eighteen](days_sick) days
 - [two](days_sick) days
-- [one] (days_sick)
-- [two] (days_sick)
+- [one](days_sick)
+- [two](days_sick)
