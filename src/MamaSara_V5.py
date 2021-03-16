@@ -12,6 +12,7 @@ import RPi.GPIO as GPIO
 # Define function to handle interrupt signal
 def signal_handler(sig, frame):
     print("\nCleaning up....")
+    GPIO.remove_event_detect(3)
     GPIO.cleanup()
     subprocess.call("docker stop rasa_actions rasa_server micvad > /dev/null 2>&1", shell=True)
     subprocess.call("docker rm rasa_actions rasa_server > /dev/null 2>&1", shell=True)
@@ -20,8 +21,6 @@ def signal_handler(sig, frame):
     return
 
 def conversation_event_button_callback(self):
-    print("Removing event detect...")
-    GPIO.remove_event_detect(3)
     # STT portion of pipeline
     print("Go ahead")
     subprocess.call("docker exec -it micvad bash -c \"python3 mvs_single.py -v 1 -m deepspeech-0.9.3-models.tflite -s deepspeech-0.9.3-models.scorer --rate 44100\" > /dev/null 2>&1", shell=True)
@@ -52,7 +51,6 @@ def conversation_event_button_callback(self):
     aplay = subprocess.Popen(['aplay'], stdin=audio.stdout)
     audio.wait()
     aplay.wait()
-    time.sleep(2)
 
 if __name__ == "__main__":
     # SIGINT Handler setup
@@ -79,12 +77,16 @@ if __name__ == "__main__":
     aplay = subprocess.Popen(['aplay'], stdin=audio.stdout)
     audio.wait()
     aplay.wait()
+
+    # Enable monitoring of GPIO pin 3 for button
+    GPIO.add_event_detect(3, GPIO.RISING, callback=conversation_event_button_callback)
+
     while (message.strip() != "goodbye"):
-        GPIO.add_event_detect(3,GPIO.RISING,callback=conversation_event_button_callback)
         print("Press the button to ask me a question")
         input()
 
     print("Cleaning up...")
+    #GPIO.remove_event_detect(3)
     GPIO.cleanup()
     subprocess.call("docker stop rasa_actions rasa_server micvad > /dev/null 2>&1", shell=True)
     subprocess.call("docker rm  rasa_actions rasa_server > /dev/null 2>&1", shell=True)
