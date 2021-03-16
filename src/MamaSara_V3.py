@@ -1,3 +1,6 @@
+'''
+Mama Sara V2 script with micvadstreaming incorporated
+'''
 import requests
 import subprocess
 import time
@@ -24,7 +27,6 @@ if __name__ == "__main__":
         user_msg_file = open("../micvadstreaming/results.txt", "r")
         user_msg = user_msg_file.read()
         user_msg_file.close()
-        stt_end = time.time()
         print(user_msg)
 
         if (user_msg.strip() == "goodbye"):

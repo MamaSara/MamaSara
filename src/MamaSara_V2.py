@@ -1,3 +1,6 @@
+'''
+Script to demonstrate Deepspeech speech recognition accuracy
+'''
 import requests
 import subprocess
 import time

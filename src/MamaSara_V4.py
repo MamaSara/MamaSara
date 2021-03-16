@@ -1,3 +1,7 @@
+'''
+Attempt one at getting button working with rest of pipeline, micvadstreaming incorporated
+Trying to use event based trigger for button, where it interrupts the program and executes a callback function
+'''
 import requests
 import subprocess
 import time

@@ -1,3 +1,6 @@
+'''
+Script to demonstrate Pocketsphinx speech recognition accuracy
+'''
 import requests
 import subprocess
 import time
@@ -5,7 +8,7 @@ import time
 if __name__ == "__main__":
     
     message = ''
-    while (message.replace(' ','') != "goodbye"):
+    while (message.strip() != "goodbye"):
         # STT portion of pipeline
         subprocess.call(['arecord', '-f', 'S16_LE', '-d', '5', '-r', '16000', '-c1', '--device', 'plughw:Device,0', '../speechrecording/request.wav'])
         
@@ -19,14 +22,14 @@ if __name__ == "__main__":
         print(user_msg)
         #print("PocketSphinx Inference took {:.2f} seconds".format(stt_end - stt_start))
 
-        if (user_msg.replace(' ','') == "goodbye"):
+        if (user_msg.strip() == "goodbye"):
             break
         
         nlp_start = time.time()
         # NLP Portion of pipeline
         response = requests.post('http://localhost:5005/webhooks/rest/webhook',json={"sender": "test", "message": user_msg})
         nlp_end = time.time()
-        # print("Rasa NLP took {:.2f} seconds".format(nlp_end - nlp_start))
+        #print("Rasa NLP took {:.2f} seconds".format(nlp_end - nlp_start))
         
         # TTS Portion of pipeline
         tts_start = time.time()
