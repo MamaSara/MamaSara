@@ -49,11 +49,22 @@ printf "\n\n\n"
 
 printf "#####Install further dependancies with sudo#####\n\n"
 sudo apt-get install libpcre3 libpcre3-dev alsa-utils mpg321 lame libasound-dev portaudio19-dev bison swig\
- libopenblas-dev libblas-dev m4 cmake cython python3-yaml python3-setuptools espeak -y
+ libopenblas-dev libblas-dev m4 cmake cython python3-yaml python3-setuptools -y
 printf "\n\n\n"
 
 printf "#####Install additional dependancies with pip#####\n\n"
 sudo pip3 install scipy tensorflow pandas pyttsx3 SpeechRecognition pyaudio numpy pyyaml requests RPi.GPIO
+printf "\n\n\n"
+
+printf "##### Install Festival Lite and dependancies#####"
+sudo apt-get install libasound2-dev
+wget http://www.festvox.org/flite/packed/flite-2.1/flite-2.1-release.tar.bz2
+tar -xvf flite-2.1-release.tar.bz2
+cd flite-2.1-release
+./configure --with-audio=alsa --with-vox=awb
+make
+sudo make install
+printf "##### Festival Lite Installation Complete #####"
 printf "\n\n\n"
 
 printf "#####Install pytorch#####\n\n"
@@ -87,6 +98,9 @@ make
 sudo make install
 cd ..
 printf "\n\n\n"
+
+
+
 
 printf "##### Install Rasa through docker #####"
 git clone https://github.com/koenvervloesem/rasa-docker-arm.git
