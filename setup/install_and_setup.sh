@@ -49,7 +49,7 @@ printf "\n\n\n"
 
 printf "#####Install further dependancies with sudo#####\n\n"
 sudo apt-get install libpcre3 libpcre3-dev alsa-utils mpg321 lame libasound-dev portaudio19-dev bison swig\
- libopenblas-dev libblas-dev m4 cmake cython python3-yaml python3-setuptools espeak -y
+ libopenblas-dev libblas-dev m4 cmake cython python3-yaml python3-setuptools -y
 printf "\n\n\n"
 
 printf "#####Install additional dependancies with pip#####\n\n"
