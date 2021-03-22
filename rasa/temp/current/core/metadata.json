@@ -1,0 +1,62 @@
+{
+  "action_fingerprints": {
+    "action_listen": {
+      "slots": []
+    },
+    "illness_diagnostic_info_form": {
+      "slots": [
+        "symptom",
+        "requested_slot"
+      ]
+    },
+    "health_diagnostic_info_form": {
+      "slots": [
+        "health",
+        "requested_slot"
+      ]
+    },
+    "nutrition_diagnostic_info_form": {
+      "slots": [
+        "requested_slot"
+      ]
+    },
+    "action_sick_child": {
+      "slots": []
+    },
+    "utter_more_information": {
+      "slots": []
+    },
+    "action_chat_restart": {
+      "slots": []
+    },
+    "action_nutrition_information": {
+      "slots": []
+    },
+    "utter_happy": {
+      "slots": []
+    },
+    "utter_intro": {
+      "slots": []
+    }
+  },
+  "python": "3.6.9",
+  "max_histories": [
+    10,
+    6,
+    null,
+    2,
+    null
+  ],
+  "ensemble_name": "rasa.core.policies.ensemble.SimplePolicyEnsemble",
+  "policy_names": [
+    "rasa.core.policies.embedding_policy.EmbeddingPolicy",
+    "rasa.core.policies.memoization.AugmentedMemoizationPolicy",
+    "rasa.core.policies.fallback.FallbackPolicy",
+    "rasa.core.policies.form_policy.FormPolicy",
+    "rasa.core.policies.mapping_policy.MappingPolicy"
+  ],
+  "trained_at": "20200308-153720",
+  "rasa": "1.3.9",
+  "tensorflow": "1.14.0",
+  "sklearn": "0.20.2"
+}

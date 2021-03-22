@@ -24,9 +24,9 @@ def conversation_event_button_callback(self):
     # STT portion of pipeline
     print("Go ahead")
     subprocess.call("docker exec -it micvad bash -c \"python3 mvs_single.py -v 1 -m deepspeech-0.9.3-models.tflite -s deepspeech-0.9.3-models.scorer --rate 44100\" > /dev/null 2>&1", shell=True)
-    subprocess.call("docker cp micvad:/dspeech/results.txt ../micvadstreaming/results.txt", shell=True)
+    subprocess.call("docker cp micvad:/dspeech/results.txt /home/pi/MamaSara/micvadstreaming/results.txt", shell=True)
     print("\nMamaSara V2 thinks you said:")
-    user_msg_file = open("../micvadstreaming/results.txt", "r")
+    user_msg_file = open("/home/pi/MamaSara/micvadstreaming/results.txt", "r")
     user_msg = user_msg_file.read()
     user_msg_file.close()
     stt_end = time.time()
@@ -38,7 +38,7 @@ def conversation_event_button_callback(self):
 
     # TTS Portion of pipeline
     tts_start = time.time()
-    response_file = open("../rasa/response.txt", "w+")
+    response_file = open("/home/pi/MamaSara/rasa/response.txt", "w+")
     response_txt = ""
     for i in response.json():
         print(i['text'])
@@ -55,6 +55,7 @@ def conversation_event_button_callback(self):
     print("Press the button to ask me a question")
 
 if __name__ == "__main__":
+    print("Application is booting up...")
     # SIGINT Handler setup
     signal.signal(signal.SIGINT, signal_handler)
     # GPIO Setup
@@ -66,11 +67,14 @@ if __name__ == "__main__":
     subprocess.call("docker-compose run -d --rm --name rasa_actions rasa run actions > /dev/null 2>&1", shell=True)
 
     # Start Rasa server container
-    subprocess.call("docker-compose run -d -p 5005:5005--rm --name rasa_server rasa run -m models --endpoints endpoints.yml > /dev/null 2>&1", shell=True)
+    subprocess.call("docker-compose run -d -p 5005:5005 --rm --name rasa_server rasa run -m models --endpoints endpoints.yml > /dev/null 2>&1", shell=True)
+    # Wait for one second, enough time for the rasa server to be up and running
+    time.sleep(45)
 
     # Start DeepSpeech container
     subprocess.call("docker run -t -d --rm -w /dspeech --name micvad --device /dev/snd:/dev/snd cwrogers1/mamasara-deepspeech:micvad > /dev/null 2>&1", shell=True)
-    subprocess.call("docker cp ../micvadstreaming/mvs_single.py micvad:./dspeech/mvs_single.py", shell=True)
+    subprocess.call("docker cp /home/pi/MamaSara/micvadstreaming/mvs_single.py micvad:./dspeech/mvs_single.py", shell=True)
+    print("Boot up complete.")
 
     # Mama Sara Introduction
     intro = "Hello. How can I help?"
