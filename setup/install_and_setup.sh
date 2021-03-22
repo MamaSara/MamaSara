@@ -15,7 +15,7 @@ sudo apt-get install -y libbz2-dev libssl-dev build-essential tk-dev libncurses5
  libreadline6-dev libdb5.3-dev libgdbm-dev libsqlite3-dev libssl-dev libbz2-dev libexpat1-dev liblzma-dev\
  zlib1g-dev libffi-dev openjdk-8-jdk libhdf5-dev libc-ares-dev libeigen3-dev gcc gfortran python-dev\
  libgfortran5 libatlas3-base libatlas-base-dev libopenblas-dev libopenblas-base libblas-dev liblapack-dev\
- cython libatlas-base-dev openmpi-bin libopenmpi-dev python3-dev python3-pip wget git curl python3-rpi.gpio
+ cython libatlas-base-dev openmpi-bin libopenmpi-dev python3-dev python3-pip wget git curl python-rpi.gpio python3-rpi.gpio
 print "\n\n\n"
 
 printf "#####Install python3.7.8#####\n\n"
