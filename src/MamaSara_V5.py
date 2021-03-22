@@ -46,7 +46,7 @@ def conversation_event_button_callback(self):
         response_txt = response_txt + i['text']
     print("\n")
 
-    audio = subprocess.Popen(['espeak -ven+f3 -k5 -s150', response_txt, '--stdout'], stdout=subprocess.PIPE)
+    audio = subprocess.Popen(['flite -voice slt -t ', response_txt, '--stdout'], stdout=subprocess.PIPE)
     tts_end = time.time()
     aplay = subprocess.Popen(['aplay'], stdin=audio.stdout)
     audio.wait()
