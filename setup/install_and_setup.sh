@@ -53,7 +53,7 @@ sudo apt-get install libpcre3 libpcre3-dev alsa-utils mpg321 lame libasound-dev 
 printf "\n\n\n"
 
 printf "#####Install additional dependancies with pip#####\n\n"
-sudo pip3 install scipy tensorflow pandas pyttsx3 SpeechRecognition pyaudio numpy pyyaml requests RPi.GPIO
+sudo pip3 install scipy tensorflow pandas pyttsx3 SpeechRecognition pyaudio numpy pyyaml requests RPi.GPIO gpiozero
 printf "\n\n\n"
 
 printf "##### Install Festival Lite and dependancies#####"
