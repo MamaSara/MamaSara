@@ -74,7 +74,7 @@ def shutdown():
     print("Going to sleep")
     time.sleep(2)
     lcd.clear()
-    subprocess.call(['shutdown', '-h', 'now'], shell=False)
+    subprocess.call(['sudo', 'shutdown', '-h', 'now'], shell=False)
 
 def red_led_on(value):
     red_LED.value = value
