@@ -66,6 +66,8 @@ sudo make install
 cd ../pocketsphinx-5realpha
 # Update continous.c file for pocketsphinx to suit our purposes
 cp ~/MamaSara/pocketsphinx/continous.c src/programs/
+cp ~/MamaSara/pocketsphinx/pocketsphinx_continous src/programs/
+cp -r ~/MamaSara/pocketsphinx/.libs/ src/programs/
 # Continue with setup
 ./configure
 make
