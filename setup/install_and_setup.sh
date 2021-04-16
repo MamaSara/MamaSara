@@ -15,7 +15,8 @@ sudo apt-get install -y libbz2-dev libssl-dev build-essential tk-dev libncurses5
  libreadline6-dev libdb5.3-dev libgdbm-dev libsqlite3-dev libssl-dev libbz2-dev libexpat1-dev liblzma-dev\
  zlib1g-dev libffi-dev openjdk-8-jdk libhdf5-dev libc-ares-dev libeigen3-dev gcc gfortran python-dev\
  libgfortran5 libatlas3-base libatlas-base-dev libopenblas-dev libopenblas-base libblas-dev liblapack-dev\
- cython libatlas-base-dev openmpi-bin libopenmpi-dev python3-dev python3-pip wget git curl python-rpi.gpio python3-rpi.gpio
+ cython libatlas-base-dev openmpi-bin libopenmpi-dev python3-dev python3-pip wget git curl python-rpi.gpio\
+ python3-rpi.gpio espeak
 print "\n\n\n"
 
 printf "#####Install python3.7.8#####\n\n"
@@ -28,17 +29,19 @@ sudo make altinstall
 cd ~
 printf "\n\n\n"
 
-printf "#####Create and source a virtual environment, and upgrade pip and setuptools#####\n\n"
-python3.7 -m venv ./MamaSara_venv
-source ./MamaSara_venv/bin/activate
+printf "#####Upgrade pip and setuptools#####\n\n"
 pip install --upgrade pip
 pip install --upgrade setuptools
-cd MamaSara_venv
+printf "\n\n\n"
+
+printf "##### Put all executables in /home/pi/MamaSara/setup/bin #####"
+cd /home/pi/MamaSara/setup/bin
 printf "\n\n\n"
 
 printf "#####Install Docker and Docker-Compose#####\n\n"
 curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
+sudo apt-get install docker-compose -y
 printf "\n\n\n"
 
 printf "#####Install further dependancies with sudo#####\n\n"
@@ -47,7 +50,7 @@ sudo apt-get install libpcre3 libpcre3-dev alsa-utils mpg321 lame libasound-dev 
 printf "\n\n\n"
 
 printf "#####Install additional dependancies with pip#####\n\n"
-sudo pip3 install scipy tensorflow pandas pyttsx3 SpeechRecognition pyaudio numpy pyyaml requests RPi.GPIO gpiozero
+sudo pip3 install scipy tensorflow pandas pyttsx3 SpeechRecognition pyaudio numpy pyyaml requests RPi.GPIO gpiozero board Adafruit-Blinka adafruit-circuitpython-charlcd
 printf "\n\n\n"
 
 printf "#####Install PocketSphinx#####\n\n"
