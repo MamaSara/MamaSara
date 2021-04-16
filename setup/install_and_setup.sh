@@ -53,28 +53,6 @@ printf "#####Install additional dependancies with pip#####\n\n"
 sudo pip3 install scipy tensorflow pandas pyttsx3 SpeechRecognition pyaudio numpy pyyaml requests RPi.GPIO gpiozero board Adafruit-Blinka adafruit-circuitpython-charlcd
 printf "\n\n\n"
 
-printf "#####Install PocketSphinx#####\n\n"
-wget https://sourceforge.net/projects/cmusphinx/files/sphinxbase/5prealpha/sphinxbase-5prealpha.tar.gz/download -O sphinxbase.tar.gz
-wget https://sourceforge.net/projects/cmusphinx/files/pocketsphinx/5prealpha/pocketsphinx-5prealpha.tar.gz/download -O pocketsphinx.tar.gz
-tar -xzvf sphinxbase.tar.gz
-tar -xzvf pocketsphinx.tar.gz
-cd sphinxbase-5prealpha
-./configure --enable-fixed
-make
-sudo make install
-
-cd ../pocketsphinx-5realpha
-# Update continous.c file for pocketsphinx to suit our purposes
-cp ~/MamaSara/pocketsphinx/continous.c src/programs/
-cp ~/MamaSara/pocketsphinx/pocketsphinx_continous src/programs/
-cp -r ~/MamaSara/pocketsphinx/.libs/ src/programs/
-# Continue with setup
-./configure
-make
-sudo make install
-cd ..
-printf "\n\n\n"
-
 printf "##### Pulling Rasa Docker Image from DockerHub #####"
 sudo docker pull hoomant/mamasara:mamasara_rasa
 printf "\n\n\n"

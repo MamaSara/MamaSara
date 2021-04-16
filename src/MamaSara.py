@@ -100,7 +100,7 @@ def conversation_event():
     red_led_on(0.5)
     subprocess.call("sudo docker exec -it micvad bash -c \"python3 mvs_single.py -v 1 -m deepspeech-0.9.3-models.tflite -s deepspeech-0.9.3-models.scorer --rate 44100\" > /dev/null 2>&1", shell=True)
     subprocess.call("sudo docker cp micvad:/dspeech/results.txt /home/pi/MamaSara/micvadstreaming/results.txt", shell=True)
-    print("\nMamaSara V2 thinks you said:")
+    print("\nMama Sara thinks you said:")
     user_msg_file = open("/home/pi/MamaSara/micvadstreaming/results.txt", "r")
     user_msg = user_msg_file.read()
     user_msg_file.close()
