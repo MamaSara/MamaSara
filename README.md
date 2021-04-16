@@ -25,10 +25,8 @@ The video presentation & demo for the 2020-2021 capstone can be found at the fol
     2. log out and log back into device
 
 ## To Use the Mama Sara application:
-1. source /home/pi/MamaSara_env/bin/activate
 2. python3 /home/pi/MamaSara/src/MamaSara.py
 
 ## To test out Rasa with its interactive Shell:
-1. source /home/pi/MamaSara_env/bin/activate
 2. sudo docker-compose run rasa run actions 
 3. sudo docker-compose run rasa shell
