@@ -38,8 +38,8 @@ def signal_handler(sig, frame):
     lcd.message = "Cleaning up..."
     print("Cleaning up ...")
     leds_off()
-    subprocess.call("docker stop rasa_actions rasa_server micvad > /dev/null 2>&1", shell=True)
-    subprocess.call("docer rm rasa_actions rasa_server > /dev/null 2>&1", shell=True)
+    subprocess.call("sudo docker stop rasa_actions rasa_server micvad > /dev/null 2>&1", shell=True)
+    subprocess.call("sudo docer rm rasa_actions rasa_server > /dev/null 2>&1", shell=True)
     lcd.clear()
     lcd.message = "Bye!"
     print("Bye!")
@@ -53,8 +53,8 @@ def exitMamaSara():
     lcd.message = "Cleaning up..."
     print("Cleaning up ...")
     leds_off()
-    subprocess.call("docker stop rasa_actions rasa_server micvad > /dev/null 2>&1", shell=True)
-    subprocess.call("docker rm rasa_actions rasa_server > /dev/null 2>&1", shell=True)
+    subprocess.call("sudo docker stop rasa_actions rasa_server micvad > /dev/null 2>&1", shell=True)
+    subprocess.call("sudo docker rm rasa_actions rasa_server > /dev/null 2>&1", shell=True)
     lcd.clear()
     lcd.message = "Bye!"
     print("Bye!")
@@ -67,8 +67,8 @@ def shutdown():
     lcd.message = "Cleaning up..."
     print("Cleaning up...")
     leds_off()
-    subprocess.call("docker stop rasa_actions rasa_server micvad > /dev/null 2>&1", shell=True)
-    subprocess.call("docker rm rasa_actions rasa_server > /dev/null 2>&1", shell=True)
+    subprocess.call("sudo docker stop rasa_actions rasa_server micvad > /dev/null 2>&1", shell=True)
+    subprocess.call("sudo docker rm rasa_actions rasa_server > /dev/null 2>&1", shell=True)
     lcd.clear()
     lcd.message = "Going to sleep.."
     print("Going to sleep")
@@ -102,8 +102,8 @@ def conversation_event():
     lcd.message = "Go ahead"
     print("Go ahead")
     red_led_on(0.5)
-    subprocess.call("docker exec -it micvad bash -c \"python3 mvs_single.py -v 1 -m deepspeech-0.9.3-models.tflite -s deepspeech-0.9.3-models.scorer --rate 44100\" > /dev/null 2>&1", shell=True)
-    subprocess.call("docker cp micvad:/dspeech/results.txt /home/pi/MamaSara/micvadstreaming/results.txt", shell=True)
+    subprocess.call("sudo docker exec -it micvad bash -c \"python3 mvs_single.py -v 1 -m deepspeech-0.9.3-models.tflite -s deepspeech-0.9.3-models.scorer --rate 44100\" > /dev/null 2>&1", shell=True)
+    subprocess.call("sudo docker cp micvad:/dspeech/results.txt /home/pi/MamaSara/micvadstreaming/results.txt", shell=True)
     print("\nMamaSara V2 thinks you said:")
     user_msg_file = open("/home/pi/MamaSara/micvadstreaming/results.txt", "r")
     user_msg = user_msg_file.read()
@@ -149,16 +149,16 @@ if __name__ == "__main__":
     signal.signal(signal.SIGINT, signal_handler)
 
     # Start Rasa actions container
-    subprocess.call("docker-compose run -d --rm --name rasa_actions rasa run actions > /dev/null 2>&1", shell=True)
+    subprocess.call("sudo docker-compose run -d --rm --name rasa_actions rasa run actions", shell=True)
 
     # Start Rasa server container
-    subprocess.call("docker-compose run -d -p 5005:5005 --rm --name rasa_server rasa run -m models --endpoints endpoints.yml > /dev/null 2>&1", shell=True)
+    subprocess.call("sudo docker-compose run -d -p 5005:5005 --rm --name rasa_server rasa run -m models --endpoints endpoints.yml", shell=True)
     # Wait for one second, enough time for the rasa server to be up and running
     time.sleep(45)
 
     # Start DeepSpeech container
-    subprocess.call("docker run -t -d --rm -w /dspeech --name micvad --device /dev/snd:/dev/snd cwrogers1/mamasara-deepspeech:micvad > /dev/null 2>&1", shell=True)
-    subprocess.call("docker cp /home/pi/MamaSara/micvadstreaming/mvs_single.py micvad:./dspeech/mvs_single.py", shell=True)
+    subprocess.call("sudo docker run -t -d --rm -w /dspeech --name micvad --device /dev/snd:/dev/snd cwrogers1/mamasara-deepspeech:micvad", shell=True)
+    subprocess.call("sudo docker cp /home/pi/MamaSara/micvadstreaming/mvs_single.py micvad:./dspeech/mvs_single.py", shell=True)
     print("Boot up complete.")
 
     # Mama Sara Introduction
@@ -183,6 +183,6 @@ if __name__ == "__main__":
     lcd.message = "Bye!"
     print("Cleaning up...")
     leds_off()
-    subprocess.call("docker stop rasa_actions rasa_server micvad > /dev/null 2>&1", shell=True)
-    subprocess.call("docker rm  rasa_actions rasa_server > /dev/null 2>&1", shell=True)
+    subprocess.call("sudo docker stop rasa_actions rasa_server micvad > /dev/null 2>&1", shell=True)
+    subprocess.call("sudo docker rm  rasa_actions rasa_server > /dev/null 2>&1", shell=True)
     print("Bye")

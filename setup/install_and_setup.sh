@@ -37,14 +37,8 @@ cd MamaSara_venv
 printf "\n\n\n"
 
 printf "#####Install Docker and Docker-Compose#####\n\n"
-curl https://raw.githubusercontent.com/oznu/docker-homebridge/master/raspbian-installer.sh?v=2019-12-11 -o get-homebridge.sh
-chmod u+x get-homebridge.sh
-./get-homebridge.sh
-printf "Read the README file located at: https://github.com/oznu/docker-homebridge/wiki/Homebridge-on-Raspberry-Pi#quick-install/README for more information about this script"
-printf "To manage Homebridge go to http://<ip of raspberry pi>:8080 in your browser. \n
- From here you can install, remove and update plugins, modify the Homebridge config.json\n
- and restart Homebridge. The default username is admin with password admin. Remember you \n
- will need to restart Homebridge to apply any changes you make to the config.json."
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
 printf "\n\n\n"
 
 printf "#####Install further dependancies with sudo#####\n\n"
@@ -54,29 +48,6 @@ printf "\n\n\n"
 
 printf "#####Install additional dependancies with pip#####\n\n"
 sudo pip3 install scipy tensorflow pandas pyttsx3 SpeechRecognition pyaudio numpy pyyaml requests RPi.GPIO gpiozero
-printf "\n\n\n"
-
-printf "##### Install Festival Lite and dependancies#####"
-sudo apt-get install libasound2-dev
-wget http://www.festvox.org/flite/packed/flite-2.1/flite-2.1-release.tar.bz2
-tar -xvf flite-2.1-release.tar.bz2
-cd flite-2.1-release
-./configure --with-audio=alsa --with-vox=awb
-make
-sudo make install
-printf "##### Festival Lite Installation Complete #####"
-printf "\n\n\n"
-
-printf "#####Install pytorch#####\n\n"
-git clone --recursive https://github.com/pytorch/pytorch
-cd pytorch
-export NO_CUDA=1
-export NO_DISTRIBUTED=1
-export NO_MKLDNN=1 
-export NO_NNPACK=1 
-export NO_QNNPACK=1
-python3 setup.py build
-cd ..
 printf "\n\n\n"
 
 printf "#####Install PocketSphinx#####\n\n"
@@ -99,22 +70,18 @@ sudo make install
 cd ..
 printf "\n\n\n"
 
+printf "##### Pulling Rasa Docker Image from DockerHub #####"
+sudo docker pull hoomant/mamasara:mamasara_rasa
+printf "\n\n\n"
 
-
-
-printf "##### Install Rasa through docker #####"
-git clone https://github.com/koenvervloesem/rasa-docker-arm.git
-cd rasa-docker-arm
-cp ~/MamaSara/rasa/rasa_docker/Makefile .
-cp ~/MamaSara/rasa/rasa_docker/build_docker.sh scripts/
-cp ~/MamaSara/rasa/rasa_docker/rasa-1.10.16-arm.patch patches/
-cp ~/MamaSara/rasa/rasa_docker/docker-compose.yml .
-make docker
+printf "##### Pulling DeepSpeech Docker Image from DockerHub #####"
+sudo docker pull cwrogers1/mamasara-deepspeech:micvad
+printf "\n\n\n"
 
 cd ~
 printf "\n\n------------------------------------------------------------"
-printf "Congratulations! The MamaSaraV1 environment is now installed and ready for use on your Raspberry Pi"
-printf "To test it out using the voice assistant:\n\t1. docker-compose run rasa run actions\n\t2. docker-compose run rasa shell"
-printf "To test it out using the voice assistant:\n\t1. docker-compose run rasa run actions\n\t2. docker-compose run rasa run -m models --endpoints endpoints.yml\n\t3. python3 run.py"
-printf "IMPORTANT: Remember to logout of raspberry pi to enable Docker with the correct permissions"
-printf "Enjoy MamaSaraV1!"
+printf "Congratulations! The MamaSara environment is now installed and ready for use on your Raspberry Pi"
+printf "To test it out the MamaSara application:\n\t1. source ~/MamaSara_env/bin/activate\n\t2.python3 /home/pi/MamaSara/src/MamaSara.py"
+printf "To test out Rasa with its interactive Shell:\n\t1. source ~/MamaSara_env/bin/activate\n\t2. sudo docker-compose run rasa run actions\n\t3. sudo docker-compose run rasa shell"
+printf "IMPORTANT: To enable non-root access to docker and running containers, perform the following steps:\n\t1. sudo usermod -aG docker [user_name] (ex: sudo usermod -aG docker pi)\n\t2. Log out of user account and log back in for this to take effect.\n\nFor more information, refer to: https://phoenixnap.com/kb/docker-on-raspberry-pi"
+printf "Enjoy MamaSara!"

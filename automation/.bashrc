@@ -113,9 +113,9 @@ if ! shopt -oq posix; then
 fi
 
 ##########################################################################
-# COPY THE BELOW TWO LINES INTO /home/pi/.bashrc file on your own device #
+# COPY THE BELOW LINES INTO /home/pi/.bashrc file on your own device #
 
-source /home/pi/MamaSaraV1_env/bin/activate
+source /home/pi/MamaSara_env/bin/activate
 cd /home/pi/MamaSara
 python3 /home/pi/MamaSara/src/MamaSara.py
 
