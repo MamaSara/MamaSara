@@ -2,4 +2,5 @@
 GPIO_peripherals/button/test_audio.py
 */results.txt
 */request.wav
+*/response.txt
 setup/bin/*
