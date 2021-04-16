@@ -23,6 +23,8 @@ The video presentation & demo for the 2020-2021 capstone can be found at the fol
 - To enable non-root access to docker and running containers, perform the following steps:
     1. sudo usermod -aG docker [user_name] (ex: sudo usermod -aG pi)
     2. log out and log back into device
+- Be sure to right click on the Raspbian GUI speaker icon and select the appropriate output mode in the "Audio Outputs" dropdown.
+- In order to run the main application, src/MamaSara.py, you need to have all necessary peripherals connected as outlined in the project report and presentation. If not, you will likely obtain erratic behavior due to uninitialized (and unchanging) pin values.
 
 ## To Use the Mama Sara application:
 2. python3 /home/pi/MamaSara/src/MamaSara.py
