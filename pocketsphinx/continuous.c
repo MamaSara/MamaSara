@@ -172,7 +172,7 @@ recognize_from_file()
     ps_start_utt(ps);
     utt_started = FALSE;
     FILE *sphinx_results_ptr;
-    sphinx_results_ptr = fopen("../pocketsphinx/results.txt", "w");
+    sphinx_results_ptr = fopen("/home/pi/MamaSara/pocketsphinx/results.txt", "w");
     while ((k = fread(adbuf, sizeof(int16), 2048, rawfd)) > 0) {
         ps_process_raw(ps, adbuf, k, FALSE, FALSE);
         in_speech = ps_get_in_speech(ps);
