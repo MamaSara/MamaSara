@@ -1,7 +1,3 @@
-'''
-Working attempt with button integrated
-Using event based trigger
-'''
 import signal
 import sys
 import requests
@@ -39,7 +35,7 @@ def signal_handler(sig, frame):
     print("Cleaning up ...")
     leds_off()
     subprocess.call("sudo docker stop rasa_actions rasa_server micvad > /dev/null 2>&1", shell=True)
-    subprocess.call("sudo docer rm rasa_actions rasa_server > /dev/null 2>&1", shell=True)
+    subprocess.call("sudo docker rm rasa_actions rasa_server > /dev/null 2>&1", shell=True)
     lcd.clear()
     lcd.message = "Bye!"
     print("Bye!")
@@ -110,7 +106,7 @@ def conversation_event():
     user_msg_file.close()
     stt_end = time.time()
     print(user_msg)
-        
+
     blue_led_on(0.5)
     lcd.clear()
     lcd.message = "Processing..."
@@ -149,15 +145,15 @@ if __name__ == "__main__":
     signal.signal(signal.SIGINT, signal_handler)
 
     # Start Rasa actions container
-    subprocess.call("sudo docker-compose run -d --rm --name rasa_actions rasa run actions", shell=True)
+    subprocess.call("sudo docker-compose run -d --rm --name rasa_actions rasa run actions > /dev/null 2>&1", shell=True)
 
     # Start Rasa server container
-    subprocess.call("sudo docker-compose run -d -p 5005:5005 --rm --name rasa_server rasa run -m models --endpoints endpoints.yml", shell=True)
-    # Wait for one second, enough time for the rasa server to be up and running
+    subprocess.call("sudo docker-compose run -d -p 5005:5005 --rm --name rasa_server rasa run -m models --endpoints endpoints.yml > /dev/null 2>&1", shell=True)
+    # Wait for 45 seconds, enough time for the rasa server to be up and running
     time.sleep(45)
 
     # Start DeepSpeech container
-    subprocess.call("sudo docker run -t -d --rm -w /dspeech --name micvad --device /dev/snd:/dev/snd cwrogers1/mamasara-deepspeech:micvad", shell=True)
+    subprocess.call("sudo docker run -t -d --rm -w /dspeech --name micvad --device /dev/snd:/dev/snd cwrogers1/mamasara-deepspeech:micvad > /dev/null 2>&1", shell=True)
     subprocess.call("sudo docker cp /home/pi/MamaSara/micvadstreaming/mvs_single.py micvad:./dspeech/mvs_single.py", shell=True)
     print("Boot up complete.")
 

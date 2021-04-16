@@ -115,7 +115,7 @@ fi
 ##########################################################################
 # COPY THE BELOW LINES INTO /home/pi/.bashrc file on your own device #
 
-source /home/pi/MamaSara_env/bin/activate
+source /home/pi/MamaSara_venv/bin/activate
 cd /home/pi/MamaSara
 python3 /home/pi/MamaSara/src/MamaSara.py
 
