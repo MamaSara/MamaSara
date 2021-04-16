@@ -9,3 +9,26 @@ Overall, the team has successfully achieved the goals of the project. A function
 The GitHub repository of the 2019-2020 capstone team can be found at: https://github.com/EricBrine/Mama-Sara
 
 The video presentation & demo for the 2020-2021 capstone can be found at the following link: https://play.library.utoronto.ca/01fb9f64f47a167ae5328d1f2e141adb
+
+## Steps for Setting up the Mama Sara Application on a Raspberry Pi
+1. With the official Raspberry Pi Imager software (available for download at: https://www.raspberrypi.org/software/), load a 32 Gb (or higher) Micro SD card with the Raspbian OS.
+2. Once the Raspbian OS is loaded onto the Micro SD card, insert it into the Raspberry Pi and allow it to run through the boot up sequence and go through all of the prompts.
+3. Clone this repository into the home directory of the Raspberry Pi (/home/pi/), the installation scripts depend on this.
+4. Run the following command: source /home/pi/MamaSara/setup/install_and_setup.sh
+5. Copy the indicated lines from /home/pi/MamaSara/automation/.bashrc to /home/pi/.bashrc to setup MamaSara application starting up automatically.
+
+*Notes:*
+- Throughout the setup and installation process, the raspberry pi must have a stable internet connection.
+- After this is complete, the Mama Sara application can be run without the need for internet.
+- To enable non-root access to docker and running containers, perform the following steps:
+    1. sudo usermod -aG docker [user_name] (ex: sudo usermod -aG pi)
+    2. log out and log back into device
+
+## To Use the Mama Sara application:
+1. source /home/pi/MamaSara_env/bin/activate
+2. python3 /home/pi/MamaSara/src/MamaSara.py
+
+## To test out Rasa with its interactive Shell:
+1. source /home/pi/MamaSara_env/bin/activate
+2. sudo docker-compose run rasa run actions 
+3. sudo docker-compose run rasa shell
