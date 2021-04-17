@@ -27,8 +27,8 @@ The video presentation & demo for the 2020-2021 capstone can be found at the fol
 - In order to run the main application, src/MamaSara.py, you need to have all necessary peripherals connected as outlined in the project report and presentation. If not, you will likely obtain erratic behavior due to uninitialized (and unchanging) pin values.
 
 ## To Use the Mama Sara application:
-2. python3 /home/pi/MamaSara/src/MamaSara.py
+1. python3 /home/pi/MamaSara/src/MamaSara.py
 
 ## To test out Rasa with its interactive Shell:
-2. sudo docker-compose run rasa run actions 
-3. sudo docker-compose run rasa shell
+1. sudo docker-compose run rasa run actions 
+2. sudo docker-compose run rasa shell
