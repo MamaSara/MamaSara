@@ -1,7 +1,7 @@
 printf "Thank you for using this script\n"
 printf "This script is stored at: https://github.com/MamaSara/MamaSara.git\n"
 printf "This script assumes the MamaSara repository is stored in the Pi home directory, with path: /home/pi/MamaSara/\n"
-printf "This script will automatically be run in the setup/bin directory of this repository\n"
+printf "This script will automatically create a bin directory in setup/ and will run in it\n"
 printf "The contents of /home/pi/MamaSara/setup/bin can be deleted when the installation is complete.\n"
 printf "The installation is starting ......\n\n\n"
 cd /home/pi/MamaSara/setup
