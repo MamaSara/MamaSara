@@ -4,7 +4,9 @@ printf "This script assumes the MamaSara repository is stored in the Pi home dir
 printf "This script will automatically be run in the setup/bin directory of this repository\n"
 printf "The contents of /home/pi/MamaSara/setup/bin can be deleted when the installation is complete.\n"
 printf "The installation is starting ......\n\n\n"
-cd /home/pi/MamaSara/setup/bin
+cd /home/pi/MamaSara/setup
+mkdir bin
+cd bin
 
 printf "#####Update and upgrade Raspberry Pi#####\n\n"
 sudo apt-get update
